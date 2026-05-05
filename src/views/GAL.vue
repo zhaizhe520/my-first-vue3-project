@@ -34,12 +34,16 @@
 import yusoft from "@/assets/yuzusoft-logo.png"
 import homeLogo from "@/assets/noacg-logo.png"
 import alicesoft from "@/assets/A-logo.png"
+import keylogo from "@/assets/key_logo.png"
+import pltlogo from "@/assets/palatelogo.png"
+import august from "@/assets/august-soft.png"
 const navItems = [
   { id: 'home', label: '首頁', to: '/' ,icon:homeLogo},
   { id: 'gallery', label: 'YUZU SOFT',icon:yusoft },
   { id: 'chars', label: 'ALICESOFT' , icon:alicesoft},
-  { id: 'story', label: '' },
-  { id: 'contact', label: '' },
+  { id: 'story', label: 'Key' ,icon:keylogo},
+  { id: 'contact', label: 'Palette',icon:pltlogo },
+  { id: 'game', label: 'August',icon:august },
 ]
 </script>
 
