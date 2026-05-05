@@ -6,10 +6,10 @@
 
     <!-- 顶部导航栏：左侧GitHub + 中间搜索 + 右侧路由 -->
     <div class="nav-container" >
-      <list class="github">
+      <div class="github">
         <button :class="searchBtn.btn" @click="openGithub" >Github</button>
         <button :class="searchBtn.btn" @click="blog">博客</button>
-      </list>
+      </div>
 
       <!-- 搜索框放中间 -->
       <form :class="formStyle.formField"  @submit.prevent>
@@ -92,6 +92,11 @@ import searchBtn from '@/assets/search-button.module.css'
   justify-content: space-between;
   align-items: center;
   padding: 14px 20px;
+}
+.github {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 .nav-menu {
   display: flex;
