@@ -32,10 +32,12 @@
 <script setup>
 // 首頁：to: '/' 會進 Home。其餘之後要圖可在該筆加 icon:（import 的圖或 URL）
 import yusoft from "@/assets/yuzusoft-logo.png"
+import homeLogo from "@/assets/noacg-logo.png"
+import alicesoft from "@/assets/A-logo.png"
 const navItems = [
-  { id: 'home', label: '首頁', to: '/' },
+  { id: 'home', label: '首頁', to: '/' ,icon:homeLogo},
   { id: 'gallery', label: 'YUZU SOFT',icon:yusoft },
-  { id: 'chars', label: 'ALICESOFT' },
+  { id: 'chars', label: 'ALICESOFT' , icon:alicesoft},
   { id: 'story', label: '' },
   { id: 'contact', label: '' },
 ]
