@@ -42,9 +42,9 @@ const router = useRouter()
 const searchText = ref('')
 
 const navList = ref([
-  { id: 1, name: 'Home', path: '/' },
-  { id: 2, name: 'GAL', path: '/gal' },
-  { id: 3, name: '方法', path: '/anime' },
+  { id: 1, name: 'ホーム', path: '/' },
+  { id: 2, name: 'GALGame会社', path: '/gal' },
+  { id: 3, name: 'アニメ会社', path: '/anime' },
   { id: 4, name: "ライトノベル", path:"/light" }
 ])
 

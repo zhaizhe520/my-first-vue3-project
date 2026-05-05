@@ -1,4 +1,7 @@
 <template>
+  <div class="full-container">
+
+  </div>
   <div class="work-container">
     <!--加載動畫-->
     <section>
@@ -68,6 +71,14 @@ export default {
 </script>
 
 <style scoped>
+.full-container{
+  width: 100%;
+  height: 1000px;
+  position: absolute;
+  z-index: -1;
+  background: linear-gradient(120deg, #fff 60%, #a7eff5 60%);
+}
+
 .line-container {
   display: flex;
   flex-wrap: wrap; 
@@ -227,7 +238,7 @@ export default {
 /*標籤框 */
 .tag-item {
   border: 2px solid rgb(9, 125, 227);
-  background-color: gray ;
+  background-color: rgb(136, 217, 244) ;
   padding: 2px 6px;
   border-radius: 4px;
   color: #fff;
