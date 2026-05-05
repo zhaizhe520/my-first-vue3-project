@@ -5,7 +5,11 @@
       <div class="gal-side-nav__rail"></div>
       <ul class="gal-side-nav__list">
         <li v-for="item in navItems" :key="item.id" class="gal-side-nav__item">
-          <span class="gal-side-nav__dot"></span>
+          <span
+            class="gal-side-nav__dot"
+            :style="{ backgroundImage: `url(${item.icon})` }"
+            aria-hidden="true"
+          ></span>
           <span class="gal-side-nav__label">{{ item.label }}</span>
         </li>
       </ul>
@@ -19,13 +23,15 @@
 </template>
 
 <script setup>
-// 側邊欄顯示名稱：只改下面的 label 即可（id 用於 v-for，勿重複）
+import yuzuLogo from '@/assets/yuzusoft-logo.png'
+
+// icon：換圖時改 import 或改成另一張圖的路徑；每列可不同圖
 const navItems = [
-  { id: 'home', label: '首頁' },
-  { id: 'gallery', label: '作品畫廊' },
-  { id: 'chars', label: '角色一覽' },
-  { id: 'story', label: '世界觀' },
-  { id: 'contact', label: '聯絡／支援' },
+  { id: 'home', label: '首頁', },
+  { id: 'gallery', label: 'YUZU SOFT', icon: yuzuLogo },
+  { id: 'chars', label: 'ALICESOFT',  },
+  { id: 'story', label: '',  },
+  { id: 'contact', label: '',  },
 ]
 </script>
 
@@ -34,6 +40,7 @@ const navItems = [
   display: flex;
   min-height: 100vh;
   width: 100%;
+  
 }
 
 /* 左側豎向導覽：天藍 ↔ 淡粉 水邊式漸層 */
@@ -95,24 +102,33 @@ const navItems = [
   font-size: 0.9rem;
   cursor: default;
   border: 1px solid transparent;
-  background: rgba(255, 255, 255, 0.22);
-  backdrop-filter: blur(6px);
-  transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+  background: transparent;
+  transition: color 0.2s, border-color 0.2s;
 }
 
 .gal-side-nav__item:hover {
-  background: rgba(255, 255, 255, 0.42);
-  border-color: rgba(255, 255, 255, 0.55);
-  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+  color: rgba(15, 23, 42, 1);
+  border-color: rgba(255, 255, 255, 0.35);
 }
 
+/* 小按鈕感：圖示用 background-image（由 item.icon 綁定 url） */
 .gal-side-nav__dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
   flex-shrink: 0;
-  background: linear-gradient(135deg, #0ea5e9, #f472b6);
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.65);
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.92);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 88%;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transition: transform 0.15s, box-shadow 0.2s;
+}
+
+.gal-side-nav__item:hover .gal-side-nav__dot {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.95);
 }
 
 .gal-side-nav__label {
