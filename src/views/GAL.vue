@@ -1,16 +1,23 @@
 <template>
   <div class="gal-layout">
-    <aside class="gal-side-nav" aria-label="側邊導覽（樣式預覽）">
+    <aside class="gal-side-nav" aria-label="側邊導覽">
       <div class="gal-side-nav__brand">GALGAME会社</div>
       <div class="gal-side-nav__rail"></div>
       <ul class="gal-side-nav__list">
-        <li v-for="item in navItems" :key="item.id" class="gal-side-nav__item">
-          <span
-            class="gal-side-nav__dot"
-            :style="{ backgroundImage: `url(${item.icon})` }"
-            aria-hidden="true"
-          ></span>
-          <span class="gal-side-nav__label">{{ item.label }}</span>
+        <li v-for="item in navItems" :key="item.id" class="gal-side-nav__row">
+          <component
+            :is="item.to ? 'router-link' : 'div'"
+            v-bind="item.to ? { to: item.to } : {}"
+            class="gal-side-nav__item"
+          >
+            <span
+              class="gal-side-nav__dot"
+              :class="{ 'gal-side-nav__dot--placeholder': !item.icon }"
+              :style="item.icon ? { backgroundImage: `url(${item.icon})` } : undefined"
+              aria-hidden="true"
+            ></span>
+            <span class="gal-side-nav__label">{{ item.label }}</span>
+          </component>
         </li>
       </ul>
       <div class="gal-side-nav__footer"></div>
@@ -23,15 +30,14 @@
 </template>
 
 <script setup>
-import yuzuLogo from '@/assets/yuzusoft-logo.png'
-
-// icon：換圖時改 import 或改成另一張圖的路徑；每列可不同圖
+// 首頁：to: '/' 會進 Home。其餘之後要圖可在該筆加 icon:（import 的圖或 URL）
+import yusoft from "@/assets/yuzusoft-logo.png"
 const navItems = [
-  { id: 'home', label: '首頁', },
-  { id: 'gallery', label: 'YUZU SOFT', icon: yuzuLogo },
-  { id: 'chars', label: 'ALICESOFT',  },
-  { id: 'story', label: '',  },
-  { id: 'contact', label: '',  },
+  { id: 'home', label: '首頁', to: '/' },
+  { id: 'gallery', label: 'YUZU SOFT',icon:yusoft },
+  { id: 'chars', label: 'ALICESOFT' },
+  { id: 'story', label: '' },
+  { id: 'contact', label: '' },
 ]
 </script>
 
@@ -40,7 +46,6 @@ const navItems = [
   display: flex;
   min-height: 100vh;
   width: 100%;
-  
 }
 
 /* 左側豎向導覽：天藍 ↔ 淡粉 水邊式漸層 */
@@ -91,19 +96,27 @@ const navItems = [
   flex: 1;
 }
 
+.gal-side-nav__row {
+  margin-bottom: 0.35rem;
+}
+
 .gal-side-nav__item {
   display: flex;
   align-items: center;
   gap: 0.65rem;
-  margin-bottom: 0.35rem;
   padding: 0.65rem 0.85rem;
   border-radius: 12px;
   color: rgba(15, 23, 42, 0.82);
   font-size: 0.9rem;
-  cursor: default;
+  cursor: pointer;
   border: 1px solid transparent;
   background: transparent;
   transition: color 0.2s, border-color 0.2s;
+  text-decoration: none;
+}
+
+a.gal-side-nav__item {
+  color: inherit;
 }
 
 .gal-side-nav__item:hover {
@@ -111,7 +124,7 @@ const navItems = [
   border-color: rgba(255, 255, 255, 0.35);
 }
 
-/* 小按鈕感：圖示用 background-image（由 item.icon 綁定 url） */
+/* 有 icon 時：背景圖：之後在 navItems 該筆加 icon 即可 */
 .gal-side-nav__dot {
   flex-shrink: 0;
   width: 40px;
@@ -126,7 +139,14 @@ const navItems = [
   transition: transform 0.15s, box-shadow 0.2s;
 }
 
-.gal-side-nav__item:hover .gal-side-nav__dot {
+.gal-side-nav__dot--placeholder {
+  background-image: none;
+  background-color: rgba(255, 255, 255, 0.35);
+  border: 1px dashed rgba(15, 23, 42, 0.18);
+  box-shadow: none;
+}
+
+.gal-side-nav__item:hover .gal-side-nav__dot:not(.gal-side-nav__dot--placeholder) {
   transform: scale(1.05);
   box-shadow: 0 4px 12px rgba(15, 23, 42, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.95);
 }
