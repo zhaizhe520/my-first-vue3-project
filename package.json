@@ -10,7 +10,10 @@
   },
   "dependencies": {
     "axios": "^1.15.2",
+    "live2dcubismcore": "^1.0.2",
     "pinia": "^3.0.4",
+    "pixi-live2d-display": "^0.4.0",
+    "pixi.js": "^6.5.10",
     "vue": "^3.5.31",
     "vue-router": "^5.0.4"
   },

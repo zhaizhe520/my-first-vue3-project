@@ -4,12 +4,15 @@
   <!-- 【動態坑位】切換頁面就自動換內容 -->
   <router-view  />
   <!-- 以後你加底部組件也放這裡，所有頁面都顯示 -->
-   
+  <!--murasame組件-->
+  <murasame />
 </template>
 
 <script setup>
 // 導入導航欄組件
 import TopNav from "@/components/layout/TopNav.vue"
+//murasame組件
+import murasame from "@/components/common/murasame.vue"
 import { useRoute } from 'vue-router'
 const route = useRoute()
 </script>
