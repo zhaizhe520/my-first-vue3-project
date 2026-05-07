@@ -245,7 +245,7 @@ const closeModal = () => {
   justify-content: center;
 }
 
-.click-box:hover ~ .textName {
+.click-box:hover~.textName {
   opacity: 1;
 }
 

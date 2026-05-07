@@ -13,6 +13,9 @@
 import TopNav from "@/components/layout/TopNav.vue"
 //murasame組件
 import murasame from "@/components/common/murasame.vue"
+
 import { useRoute } from 'vue-router'
 const route = useRoute()
+
+
 </script>

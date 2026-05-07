@@ -7,22 +7,31 @@ export const usePetStore = defineStore('pet', {
     isVisible: false,
     lastTrigger: null // 紀錄最後一個觸發的組件 ID，防止閃爍
   }),
-  
+
+  // stores/petStore.js
   actions: {
-    // 進入組件時呼叫
-    showPet(text, id) {
+    showPet(message, id) {
+      // 1. 如果有人正準備要隱藏氣泡，立刻攔截（清除定時器）
+      if (this.timer) {
+        clearTimeout(this.timer);
+        this.timer = null;
+      }
+
+      this.message = message;
       this.lastTrigger = id;
-      this.message = text;
       this.isVisible = true;
     },
-    // 離開組件時呼叫
-    hidePet(id) {
-      // 只有當「離開的組件」就是「最後一個觸發的組件」時才隱藏
-      // 這樣可以防止鼠標從 A 快速移動到 B 時，A 的 leave 事件把 B 的對話關掉
-      if (this.lastTrigger === id) {
+
+    hidePet() {
+      // 2. 離開時不要立刻隱藏，先開啟一個 x 秒的倒數計時
+      if (this.timer) clearTimeout(this.timer); // 確保只有一個計時器在跑
+
+      this.timer = setTimeout(() => {
         this.isVisible = false;
         this.message = '';
-      }
+        this.lastTrigger = null;
+        this.timer = null;
+      }, 1200);
     }
   }
 })
