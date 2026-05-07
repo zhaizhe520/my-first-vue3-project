@@ -4,6 +4,7 @@ import Home from '@/views/Home.vue'
 import GAL from '@/views/GAL.vue'
 import Anime from '@/views/anime.vue'
 import light from '@/views/light.vue'
+
 // 路徑對應頁面規則
 // 懶加載
 const routes = [
@@ -31,9 +32,11 @@ const routes = [
   }
 ]
 
+
 const router = createRouter({
   history: createWebHistory(),
   routes
 })
+
 
 export default router

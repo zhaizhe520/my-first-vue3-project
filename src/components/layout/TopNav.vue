@@ -7,8 +7,8 @@
     <!-- 顶部导航栏：左侧GitHub + 中间搜索 + 右侧路由 -->
     <div class="nav-container" >
       <div class="github">
-        <button :class="searchBtn.btn" @click="openGithub" >Github</button>
-        <button :class="searchBtn.btn" @click="blog">博客</button>
+        <button :class="searchBtn.btn" @click="openGithub" v-pet-tip="'这是我的Github仓库哦,開源Code都在里面哦,可以的话请点个小星星Ciallo～(∠・ω< )⌒☆'" >Github</button>
+        <button :class="searchBtn.btn" @click="blog" v-pet-tip="'技術博客並非卖課！！'">博客</button>
       </div>
 
       <!-- 搜索框放中间 -->
@@ -24,6 +24,7 @@
           v-for="item in navList"
           :key="item.id"
           :to="item.path"
+          v-pet-tip="item.tip"
           active-class="active"
           class="nav-item"
         >
@@ -37,15 +38,22 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+/*live2d交互 */
+//写了封装可以不写调用
+//import { usePetStore } from '@/stores/petStore'
+//const petStore = usePetStore()
+//const componentId = 'nav-home' // 每個組件給一個唯一的 ID
+
+
 
 const router = useRouter()
 const searchText = ref('')
 
 const navList = ref([
-  { id: 1, name: 'ホーム', path: '/' },
-  { id: 2, name: 'GALGame会社', path: '/gal' },
-  { id: 3, name: 'アニメ会社', path: '/anime' },
-  { id: 4, name: "ライトノベル", path:"/light" }
+  { id: 1, name: 'ホーム', path: '/' ,tip:'主页返回了哦'},
+  { id: 2, name: 'GALGame会社', path: '/gal',tip:'这是GAL公司介绍哦' },
+  { id: 3, name: 'アニメ会社', path: '/anime' ,tip:'这是动漫公司介绍哦'},
+  { id: 4, name: "ライトノベル", path:"/light" ,tip:'这是轻小说哦'}
 ])
 
 const goSearch = () => {
@@ -62,6 +70,7 @@ const openGithub = () => {
 const blog = () => {
   window.open('https://zhaizhe520.github.io/', '_blank')
 }
+
 import formStyle from '@/assets/formField.module.css'
 import navBtn from '@/assets/nav-button.module.css'
 import searchBtn from '@/assets/search-button.module.css'

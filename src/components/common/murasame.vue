@@ -5,6 +5,43 @@ import { onMounted, onUnmounted, ref, shallowRef } from 'vue';
 import * as PIXI from 'pixi.js';
 // 引入用於支持 Cubism 4 模型的 Live2D 顯示組件
 import { Live2DModel } from 'pixi-live2d-display/cubism4';
+//對話框
+//解構會弄丟響應性
+// 使用 storeToRefs 保持響應性
+import { storeToRefs } from 'pinia'
+import { usePetStore } from '@/stores/petStore'
+const petStore = usePetStore()
+
+
+
+//打字機
+// 1. 引入你的打字機 js
+import { useTypewriter } from '@/utils/useTypewriter'
+
+const { message, isVisible } = storeToRefs(petStore)
+
+// 2. 初始化打字機功能
+const { displayText, startTyping } = useTypewriter()
+
+import { watch } from 'vue'
+// 3. 核心邏輯：監聽 Pinia 裡的文字變化
+watch(message, (newText) => {
+  if (newText) {
+    // 當 Pinia 收到新文字時，啟動打字效果
+    startTyping(newText, 60) // 60ms 是打字速度
+  } else {
+    // 如果文字被清空，也可以同步清空顯示內容
+    // displayText.value = '' 
+  }
+})
+//
+
+
+
+
+
+
+
 
 // 將 PixiJS 的計時器（Ticker）註冊到 Live2D 模型類中，使其能自動播放動畫
 Live2DModel.registerTicker(PIXI.Ticker);
@@ -82,6 +119,15 @@ onUnmounted(() => {
 <template>
   <div class="live2d-pet-container">
     <canvas ref="canvasRef"></canvas>
+    <transition name="fade">
+      <div v-if="isVisible" class="pet-dialog">
+        <!-- 4. 注意：這裡要綁定的是打字機輸出的 displayText -->
+        <p>{{ displayText }}</p>
+        
+        <!-- 裝飾用的小尾巴 -->
+        <div class="dialog-arrow"></div>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -110,5 +156,18 @@ canvas {
   height: 100%;
   /* 6. 恢復 Canvas 的點擊事件，讓 Live2D 的交互（如摸頭）生效 */
   pointer-events: auto;
+}
+.pet-dialog {
+  position: absolute;
+  bottom: 100%; /* 讓它出現在模型頭部附近 */
+  left: 10%;
+  transform: translateX(-50%);
+  z-index: 999; /* 確保在 canvas 之上 */
+  background: white;
+  padding: 10px;
+  border-radius: 8px;
+  /* 暫時給個邊框確保能看見 */
+  border: 2px solid #ffb7c5; 
+  min-width: 50px;
 }
 </style>
