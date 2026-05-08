@@ -54,7 +54,7 @@ defineProps({
 .image-box img {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* 保证图片铺满不失真 */
+  object-fit: cover; /* 保证图片铺满不失真 */
 }
 
 /* 下方文字行：初始透明度为 0 */

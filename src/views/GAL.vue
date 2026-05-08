@@ -24,9 +24,11 @@
     </aside>
 
     <main class="gal-main">
-      <!-- 主內容區預留，之後再接功能 -->
+      <!-- 主內容，之后接功能 -->
+       <header-box />
     </main>
   </div>
+
 </template>
 
 <script setup>
@@ -37,6 +39,10 @@ import alicesoft from "@/assets/A-logo.png"
 import keylogo from "@/assets/key_logo.png"
 import pltlogo from "@/assets/palatelogo.png"
 import august from "@/assets/august-soft.png"
+
+
+//组件
+import HeaderBox from "@/components/home/headerBox.vue"
 const navItems = [
   { id: 'home', label: '首頁', to: '/' ,icon:homeLogo},
   { id: 'gallery', label: 'YUZU SOFT',icon:yusoft },
