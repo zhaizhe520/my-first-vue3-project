@@ -13,7 +13,7 @@
 
       <!-- 搜索框放中间 -->
       <form :class="formStyle.formField"  @submit.prevent>
-        <input required="" type="text"   v-model="searchText"  @keyup.enter="goSearch"/>
+        <input required="" type="text"   v-model="searchText"  @keyup.enter="goSearch" v-pet-tip="'要搜些什么呢?'"/>
         <span>查詢</span>
         <button :class="navBtn.btn">搜索</button>
       </form>

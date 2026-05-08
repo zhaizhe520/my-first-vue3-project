@@ -1,7 +1,6 @@
 <template>
-    <div class="github-card">
+    <div class="github-card" v-pet-tip="'我每天有在高强度写代码哦'">
         <div class="card-header">
-            <span class="title">我每天有高强度写代码哦</span>
         </div>
         <div class="calendar-box">
             <img src="https://ghchart.rshah.org/39d353/zhaizhe520" alt="GitHub Contributions" />
@@ -14,20 +13,20 @@
 .github-card {
     padding: 20px;
     /* 背景渐变：从 GitHub 蓝到一种温柔的暖紫色/橙色 */
-    background: linear-gradient(135deg, #8ec5fc 0%, #e0c3fc 100%);
+    background: linear-gradient(135deg, #c7d8e8 0%, #e3b0cd 100%);
 
     border-radius: 12px;
-    color: #ffffff;
+    color: #b8b3b3;
     text-align: center;
     /* 增加一个非常淡的内发光，让暖色调更通透 */
     box-shadow: inset 0 0 20px rgba(216, 90, 74, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(227, 100, 100, 0.1);
     /* 淡淡的灰色边框 */
     border-radius: 6px;
     padding: 16px;
-    max-width: 850px;
-    margin: 20px auto;
+    max-width: 650px;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    cursor: pointer;
 }
 
 .card-header {
@@ -58,4 +57,4 @@
     transition: transform 0.3s ease;
 }
 
-</style>s
+</style>
