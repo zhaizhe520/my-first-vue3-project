@@ -4,8 +4,13 @@
   <!-- 【動態坑位】切換頁面就自動換內容 -->
   <router-view  />
   <!-- 以後你加底部組件也放這裡，所有頁面都顯示 -->
+
   <!--murasame組件-->
   <murasame />
+
+  <!--页脚-->
+  <FooterBox/>
+
 </template>
 
 <script setup>
@@ -15,7 +20,11 @@ import TopNav from "@/components/layout/TopNav.vue"
 import murasame from "@/components/common/murasame.vue"
 
 import { useRoute } from 'vue-router'
-const route = useRoute()
 
+//homey页脚
+import FooterBox from "./components/home/footerBox.vue";
+
+
+const route = useRoute()
 
 </script>

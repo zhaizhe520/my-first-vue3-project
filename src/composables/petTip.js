@@ -1,4 +1,5 @@
 //封裝指令pinia裡的mouseenter和mouseleave
+//<div v-pet-tip:nav-home:"'你好'"></div>封装一个tip指令来实现鼠标移入文字交互
 import { usePetStore } from '@/stores/petStore'
 
 export const vPetTip = {

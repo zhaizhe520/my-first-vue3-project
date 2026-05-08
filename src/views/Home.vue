@@ -1,14 +1,14 @@
-<template>
-
-
-</template>
-
 <script>
+import CardBox from '@/components/home/cardBox.vue';
+
+
 
 </script>
 
-<style>
+
+<template>
+<CardBox />
 
 
 
-</style>
+</template>
