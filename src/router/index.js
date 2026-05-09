@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 // 引入所有頁面
-import Home from '@/views/Home.vue'
-import GAL from '@/views/GAL.vue'
-import Anime from '@/views/anime.vue'
-import light from '@/views/light.vue'
+import Home from '@/views/Home/Home.vue'
+import GAL from '@/views/Gal/GAL.vue'
+import Anime from '@/views/Anime/Anime.vue'
+import Light from '@/views/Light/Light.vue'
 
 // 路徑對應頁面規則
 // 懶加載
@@ -22,12 +22,12 @@ const routes = [
     path: '/anime', component: Anime
   },
   {
-    path: '/light', component: light
+    path: '/light', component: Light
   },
   {
     path: '/search',
     name: 'Search',
-    component: () => import('@/views/Search.vue'),
+    component: () => import('@/views/Search/Search.vue'),
     meta: { hideNav: true } // 標記這個頁面不需要導航欄
   }
 ]

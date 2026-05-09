@@ -2,18 +2,9 @@
   <div class="page-container">
     <!-- 增加加載狀態判斷，防止數據還沒抓到時 pageData[0] 報錯 -->
     <div class="content" v-if="!isLoading && pageAllData[currentPage]">
-      <light1 :pageData="pageAllData[currentPage]" />
+      <light-page :pageData="pageAllData[currentPage]" />
     </div>
     <!-- 數據加載中顯示 -->
-    <div v-if="isLoading" class="loading-container">
-      <div class="spinner"></div>
-      <p>正在抓取 WordPress 文章...</p>
-    </div>
-
-    <!-- 數據加載完成後顯示內容 (你原本的內容) -->
-    <div v-else class="line-container">
-      <!-- ... 你原本的文章列表 ... -->
-    </div>
 
     <div class="bottom-buttons">
       <button @click="prevPage" :disabled="currentPage === 1">←</button>
@@ -24,11 +15,11 @@
 </template>
 
 <script>
-import light1 from './light1.vue';
 import { useWorkStore } from '@/stores/useWorkStore' // 確保路徑正確
+import LightPage from './LightPage.vue';
 
 export default {
-  components: { light1 },
+  components: { LightPage },
   data() {
     return {
       currentPage: 1
