@@ -5,17 +5,11 @@
       <div class="gal-side-nav__rail"></div>
       <ul class="gal-side-nav__list">
         <li v-for="item in navItems" :key="item.id" class="gal-side-nav__row">
-          <component
-            :is="item.to ? 'router-link' : 'div'"
-            v-bind="item.to ? { to: item.to } : {}"
-            class="gal-side-nav__item"
-          >
-            <span
-              class="gal-side-nav__dot"
-              :class="{ 'gal-side-nav__dot--placeholder': !item.icon }"
-              :style="item.icon ? { backgroundImage: `url(${item.icon})` } : undefined"
-              aria-hidden="true"
-            ></span>
+          <component :is="item.to ? 'router-link' : 'div'" v-bind="item.to ? { to: item.to } : {}"
+            class="gal-side-nav__item" @click="handleNavClick(item)"
+            :class="{ 'is-active': currentContent === item.comp }">
+            <span class="gal-side-nav__dot" :class="{ 'gal-side-nav__dot--placeholder': !item.icon }"
+              :style="item.icon ? { backgroundImage: `url(${item.icon})` } : undefined" aria-hidden="true"></span>
             <span class="gal-side-nav__label">{{ item.label }}</span>
           </component>
         </li>
@@ -25,7 +19,8 @@
 
     <main class="gal-main">
       <!-- 主內容，之后接功能 -->
-       <gal-home-right />
+       <!-- 逻辑或 (||) 运算符的 Vue 动态组件渲染写法 -->
+      <component :is="currentContent || GalHomeRight" />
     </main>
   </div>
 
@@ -51,15 +46,25 @@ import GalPalette from "./GalPalette.vue"
 import GalAugust from "./GalAugust.vue"
 
 
+//轻量切换
+import { shallowRef } from 'vue'
+const currentContent = shallowRef(null) // 默认设为 GalYouZu
+
 
 const navItems = [
-  { id: 'home', label: '首頁', to: '/' ,icon:homeLogo},
-  { id: 'gallery', label: 'YUZU SOFT',icon:yusoft ,to:''},
-  { id: 'chars', label: 'ALICESOFT' , icon:alicesoft},
-  { id: 'story', label: 'Key' ,icon:keylogo},
-  { id: 'contact', label: 'Palette',icon:pltlogo },
-  { id: 'game', label: 'August',icon:august },
+  { id: 'home', label: '首頁', to: '/', icon: homeLogo }, // 这个保留路由跳转
+  { id: 'gallery', label: 'YUZU SOFT', icon: yusoft, comp: GalYouZu }, // 增加 comp 属性
+  { id: 'chars', label: 'ALICESOFT', icon: alicesoft, comp: GalAlice },
+  { id: 'story', label: 'Key', icon: keylogo, comp: GalKey },
+  { id: 'contact', label: 'Palette', icon: pltlogo, comp: GalPalette },
+  { id: 'game', label: 'August', icon: august, comp: GalAugust },
 ]
+// 切换函数
+const handleNavClick = (item) => {
+  if (item.comp) {
+    currentContent.value = item.comp
+  }
+}
 </script>
 
 <style scoped>
@@ -79,16 +84,14 @@ const navItems = [
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  background: linear-gradient(
-    165deg,
-    #38bdf8 0%,
-    #7dd3fc 22%,
-    #bae6fd 45%,
-    #e0f2fe 58%,
-    #fce7f3 78%,
-    #fbcfe8 92%,
-    #fdf2f8 100%
-  );
+  background: linear-gradient(165deg,
+      #38bdf8 0%,
+      #7dd3fc 22%,
+      #bae6fd 45%,
+      #e0f2fe 58%,
+      #fce7f3 78%,
+      #fbcfe8 92%,
+      #fdf2f8 100%);
   box-shadow: 4px 0 24px rgba(56, 189, 248, 0.12), 2px 0 12px rgba(244, 114, 182, 0.08);
   border-right: 1px solid rgba(255, 255, 255, 0.55);
 }

@@ -112,8 +112,12 @@ export default {
   border-radius: 5px;
   border-style: groove; 
 }
-.click-box:hover{
-  transform: translateY(-5px);
+.click-box:hover {
+  /* skew(X轴倾斜角度, Y轴倾斜角度) */
+  /* -30deg 通常能产生向右下伸展的视觉倾斜感 */
+  transform: translateY(-5px) rotate(-3deg) scale(1.05);
+  
+  transition: transform 0.2s ease; /* 让动作更平滑 */
 }
 
 
