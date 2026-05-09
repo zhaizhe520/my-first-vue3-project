@@ -1,4 +1,7 @@
 <script setup>
+//引入路由
+import {useRouter} from 'vue-router'
+const router = useRouter();
 
 import CardBox from '@/components/home/cardBox.vue';
 import ListBox from '@/components/home/listBox.vue';
@@ -7,25 +10,29 @@ import ListBox from '@/components/home/listBox.vue';
 //传图向listBox
 import ImageBox1 from '@/assets/cy.jpg'
 import ImageBox2 from '@/assets/tech.jpg'
-import HeaderBox from '@/components/home/headerBox.vue';
 //传文字向listBox
 const dynamicText1 = "我是看板娘丛雨哦"
-const dynamicText2 = "感兴趣的话技术博客里有实现效果"
-
+//路由跳转
+const jumpTouter=()=>{
+  router.push('/gal')  
+}
+    
 </script>
 
 
 <template>
-<section class="githubCard">
-    <CardBox />
-    <div class="imgBox">
-        <ListBox :imageSrc="ImageBox1" :title="dynamicText1" v-pet-tip="'点击可以详细查看我是谁哦！'"/>
-        <ListBox :imageSrc="ImageBox2" :title="dynamicText2" v-pet-tip="'对我如何实现的感兴趣吗?'"/>
-    </div>
-</section>
-<section>
-    
-</section>
+    <section class="githubCard">
+        <CardBox />
+        <div class="imgBox">
+            <ListBox :imageSrc="ImageBox1" :title="dynamicText1" v-pet-tip="'点击可以详细查看我是谁哦！'" @click="jumpTouter"   />
+            <a href="https://zhaizhe520.github.io" target="_blank">
+                <ListBox class="tech" :imageSrc="ImageBox2" v-pet-tip="'对我如何实现的感兴趣吗?'" />
+            </a>
+        </div>
+    </section>
+    <section>
+
+    </section>
 
 
 
@@ -33,15 +40,21 @@ const dynamicText2 = "感兴趣的话技术博客里有实现效果"
 
 </template>
 
-<style>
+<style scoped>
 /*github卡片 */
-.githubCard{
+.githubCard {
     margin-top: 20px;
 
 }
-.imgBox{
+
+.imgBox {
     display: flex;
-    width: 680px;
-    justify-content: space-between; /* 两端对齐，中间自动分 */
+
+}
+
+/* 意思是：在带有 .tech 标识的组件深层查找 .image-box */
+.tech:deep(.image-box) {
+    width: 600px;
+
 }
 </style>

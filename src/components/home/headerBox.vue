@@ -21,7 +21,7 @@ const companyList = [
   { role: 'A社', name: 'A社', desc: '长期活跃于中日动画界第一线及插画界、游戏圈的多栖实力派绘师。', avatar: 'https://via.placeholder.com/150' },
   { role: 'KEY社', name: 'KEY社', desc: '日本美少女游戏界异色风格代表绘师，擅长诡谲的视觉设计及绚丽的色彩表现。', avatar: 'https://via.placeholder.com/150' },
   { role: '调色板社', name: '调色板社', desc: '测试超长文本自动换行功能：这是一段非常非常长的描述文字，用来确保它在达到容器宽度时会自动向下延伸而不会横向溢出。', avatar: 'https://via.placeholder.com/150' },
-  { role: '人物设计', name: 'Werkbau', desc: '近期参与作品有《女神异闻录：夜幕魅影》《Summer Pockets》等。', avatar: 'https://via.placeholder.com/150' },
+  { role: '人物设计', name: 'Werkbau', desc: '近期参与作品有《女神异闻录:夜幕魅影》《Summer Pockets》等。', avatar: 'https://via.placeholder.com/150' },
   { role: '概念设计', name: '大石龙子', desc: '主要负责作品有《Forest》《赫炎的印加诺克》《徒花异谭》等。', avatar: 'https://via.placeholder.com/150' },
 ];
 </script>
