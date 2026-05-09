@@ -29,7 +29,9 @@ const routes = [
     name: 'Search',
     component: () => import('@/views/Search/Search.vue'),
     meta: { hideNav: true } // 標記這個頁面不需要導航欄
-  }
+  },
+  
+
 ]
 
 

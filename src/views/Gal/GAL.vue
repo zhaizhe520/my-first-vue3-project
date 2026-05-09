@@ -25,7 +25,7 @@
 
     <main class="gal-main">
       <!-- 主內容，之后接功能 -->
-       <header-box />
+       <gal-home-right />
     </main>
   </div>
 
@@ -41,11 +41,20 @@ import pltlogo from "@/assets/palatelogo.png"
 import august from "@/assets/august-soft.png"
 
 
-//组件
-import HeaderBox from "@/components/home/headerBox.vue"
+//右边GalHomeRight组件
+import GalHomeRight from "./GalHomeRight.vue"
+//左边跳转组件
+import GalYouZu from "./GalYouzu.vue"
+import GalAlice from "./GalAlice.vue"
+import GalKey from "./GalKey.vue"
+import GalPalette from "./GalPalette.vue"
+import GalAugust from "./GalAugust.vue"
+
+
+
 const navItems = [
   { id: 'home', label: '首頁', to: '/' ,icon:homeLogo},
-  { id: 'gallery', label: 'YUZU SOFT',icon:yusoft },
+  { id: 'gallery', label: 'YUZU SOFT',icon:yusoft ,to:''},
   { id: 'chars', label: 'ALICESOFT' , icon:alicesoft},
   { id: 'story', label: 'Key' ,icon:keylogo},
   { id: 'contact', label: 'Palette',icon:pltlogo },
