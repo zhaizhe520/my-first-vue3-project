@@ -1,8 +1,3 @@
 <template>
-
-    Vue嵌入
-    写监听
-    
-
-    
+  111
 </template>
