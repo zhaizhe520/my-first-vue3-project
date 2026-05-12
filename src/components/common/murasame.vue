@@ -18,7 +18,9 @@ const petStore = usePetStore()
 // 1. 引入你的打字機 js
 import { useTypewriter } from '@/utils/useTypewriter'
 
-const { message, isVisible } = storeToRefs(petStore)
+import { computed } from 'vue'
+const message = computed(() => petStore.message) 
+const isVisible = computed(() => petStore.isVisible)
 
 // 2. 初始化打字機功能
 const { displayText, startTyping } = useTypewriter()
@@ -122,6 +124,7 @@ onUnmounted(() => {
     <canvas ref="canvasRef"></canvas>
     <transition name="fade">
       <div v-if="isVisible" class="pet-dialog">
+        {{ message }}
         <!-- 4. 注意：這裡要綁定的是打字機輸出的 displayText -->
         <p>{{ displayText }}</p>
         
