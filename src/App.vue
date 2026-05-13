@@ -36,14 +36,15 @@ const route = useRoute()
 const isReady = ref(false)
 
 const asyncPte = defineAsyncComponent({
-  // 1. 还原纯净的 import，让浏览器根据缓存速度决定加载时间
-  loader: () => import('./components/common/murasame.vue'),
-  
+  loader: () => new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(import('./components/common/murasame.vue'))
+    }, 5000)
+  }),
+  // 【重点】Vue 内部会处理：在 loader 没完成前，它会一直显示这个组件
+  // 并且不会因为 App.vue 的生命周期而闪现消失
   loadingComponent: BoxAnime,
-  
-  // 2. 设置一个合理的延迟时间（例如 200ms-500ms）
-  // 如果浏览器有缓存，加载几乎是瞬间的，动画直接被跳过
-  delay: 2000 
+  delay: 0 
 })
 
 onMounted(() => {

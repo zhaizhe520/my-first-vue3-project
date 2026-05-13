@@ -32,8 +32,7 @@ watch(message, (newText) => {
     // 當 Pinia 收到新文字時，啟動打字效果
     startTyping(newText, 60) // 60ms 是打字速度
   } else {
-    // 如果文字被清空，也可以同步清空顯示內容
-    // displayText.value = '' 
+    displayText.value = ''
   }
 })
 
@@ -124,8 +123,6 @@ onUnmounted(() => {
     <canvas ref="canvasRef"></canvas>
     <transition name="fade">
       <div v-if="isVisible" class="pet-dialog">
-        {{ message }}
-        <!-- 4. 注意：這裡要綁定的是打字機輸出的 displayText -->
         <p>{{ displayText }}</p>
         
         <!-- 裝飾用的小尾巴 -->
