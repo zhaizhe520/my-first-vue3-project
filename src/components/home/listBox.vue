@@ -11,7 +11,6 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
 
 defineProps({
   //接受图片  
@@ -22,7 +21,7 @@ defineProps({
   //接收字
   title:{
     type: String,
-    default: '默认标题' // 如果父组件没传，就用这个，或者直接给空字符串 ''
+    default: '' // 如果父组件没传，就用这个，或者直接给空字符串 ''
   }
 })
 
