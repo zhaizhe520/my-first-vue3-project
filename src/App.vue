@@ -5,7 +5,7 @@
   <router-view  />
   <!-- 以後你加底部組件也放這裡，所有頁面都顯示 -->
 
-  <!--murasame組件-->
+  <!--murasame的懒加载組件-->
   <asyncPte v-if="isReady" />
   <!--murasame站位组件-->
   <BoxAnime  v-else/>
@@ -26,7 +26,8 @@ import { useRoute } from 'vue-router'
 
 //homey页脚
 import FooterBox from "./components/home/footerBox.vue";
-//占位组件
+
+//占位组件来实现组件没出现之前的动画效果
 import BoxAnime from './components/common/BoxAnime.vue';
 
 
@@ -42,9 +43,10 @@ const asyncPte = defineAsyncComponent({
     }, 5000)
   }),
   // 【重点】Vue 内部会处理：在 loader 没完成前，它会一直显示这个组件
+
   // 并且不会因为 App.vue 的生命周期而闪现消失
   loadingComponent: BoxAnime,
-  delay: 0 
+  delay: 200 //超过2毫秒进入没加载出来进入BoxAnime组件?我那个live2dcubismcore.min.js要加载出来才能判断显示不显示，很烦
 })
 
 onMounted(() => {
