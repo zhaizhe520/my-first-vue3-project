@@ -12,10 +12,10 @@
       </div>
 
       <!-- 搜索框放中间 -->
-      <form :class="formStyle.formField"  @submit.prevent>
-        <input required="" type="text"   v-model="searchText"  @keyup.enter="goSearch" v-pet-tip="'要搜些什么呢?'"/>
+      <form :class="formStyle.formField" @submit.prevent="goSearch">
+        <input required="" type="text" v-model="searchText" v-pet-tip="'要搜些什么呢?'"/>
         <span>查詢</span>
-        <button :class="navBtn.btn">搜索</button>
+        <button type="submit" :class="navBtn.btn">搜索</button>
       </form>
 
       <!-- 右侧路由菜单 -->
@@ -99,7 +99,8 @@ import searchBtn from '@/assets/search-button.module.css'
   height: 180px;
   position: sticky;
   top: 0;
-  z-index: 999;
+  /* 高於 Live2D 容器 (9999)，避免矮屏下畫布蓋住頂欄導致搜索框點不到 */
+  z-index: 10050;
 }
 /* 核心布局：左侧GitHub + 中间搜索 + 右侧路由 */
 .nav-container {
