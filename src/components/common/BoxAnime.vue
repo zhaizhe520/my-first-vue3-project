@@ -1,6 +1,8 @@
 <template>
   <div class="pet-placeholder">
+
     <!-- 这里就是动画本体 -->
+     
     <div class="spinner"></div>
     <p class="loading-text">站娘加载中...</p>
   </div>
