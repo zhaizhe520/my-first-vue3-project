@@ -100,7 +100,7 @@ import searchBtn from '@/assets/search-button.module.css'
   position: sticky;
   top: 0;
   /* 高於 Live2D 容器 (9999)，避免矮屏下畫布蓋住頂欄導致搜索框點不到 */
-  z-index: 10050;
+  z-index: 1;
 }
 /* 核心布局：左侧GitHub + 中间搜索 + 右侧路由 */
 .nav-container {
