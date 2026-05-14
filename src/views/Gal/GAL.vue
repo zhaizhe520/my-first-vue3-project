@@ -5,7 +5,7 @@
       <div class="gal-side-nav__rail"></div>
       <ul class="gal-side-nav__list">
         <li v-for="item in navItems" :key="item.id" class="gal-side-nav__row">
-          <component :is="item.to ? 'router-link' : 'div'" v-bind="item.to ? { to: item.to } : {}"
+          <component :is="item.to ? 'router-link' : 'div'" v-bind="item.to ? { to: item.to } : {}" v-pet-tip="item.tip"
             class="gal-side-nav__item" @click="handleNavClick(item)"
             :class="{ 'is-active': currentContent === item.comp }">
             <span class="gal-side-nav__dot" :class="{ 'gal-side-nav__dot--placeholder': !item.icon }"
@@ -19,7 +19,7 @@
 
     <main class="gal-main">
       <!-- 主內容，之后接功能 -->
-       <!-- 逻辑或 (||) 运算符的 Vue 动态组件渲染写法 -->
+      <!-- 逻辑或 (||) 运算符的 Vue 动态组件渲染写法 -->
       <component :is="currentContent || GalHomeRight" />
     </main>
   </div>
@@ -52,12 +52,12 @@ const currentContent = shallowRef(null) // 默认设为 GalYouZu
 
 
 const navItems = [
-  { id: 'home', label: '首頁', to: '/', icon: homeLogo }, // 这个保留路由跳转
-  { id: 'gallery', label: 'YUZU SOFT', icon: yusoft, comp: GalYouZu }, // 增加 comp 属性
-  { id: 'chars', label: 'ALICESOFT', icon: alicesoft, comp: GalAlice },
-  { id: 'story', label: 'Key', icon: keylogo, comp: GalKey },
-  { id: 'contact', label: 'Palette', icon: pltlogo, comp: GalPalette },
-  { id: 'game', label: 'August', icon: august, comp: GalAugust },
+  { id: 'home', label: '首頁', to: '/', icon: homeLogo,tip:'回到主页了哦！' }, // 这个保留路由跳转
+  { id: 'gallery', label: 'YUZU SOFT', icon: yusoft, comp: GalYouZu ,tip:'这是柚子社!'}, // 增加 comp 属性
+  { id: 'chars', label: 'ALICESOFT', icon: alicesoft, comp: GalAlice ,tip:'这是A社!'},
+  { id: 'story', label: 'Key', icon: keylogo, comp: GalKey,tip:'这是Key社!' },
+  { id: 'contact', label: 'Palette', icon: pltlogo, comp: GalPalette,tip:'这是板油社!' },
+  { id: 'game', label: 'August', icon: august, comp: GalAugust,tip:'这是八月社!' },
 ]
 // 切换函数
 const handleNavClick = (item) => {
