@@ -155,7 +155,6 @@ canvas {
   width: 100%;
   height: 100%;
   /* 6. 恢復 Canvas 的點擊事件，讓 Live2D 的交互（如摸頭）生效 */
-  pointer-events: auto;
 }
 .pet-dialog {
   position: absolute;

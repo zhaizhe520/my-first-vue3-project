@@ -1,5 +1,6 @@
 <template>
   <div class="gal-layout">
+    <div class=""></div>
     <aside class="gal-side-nav" aria-label="側邊導覽">
       <div class="gal-side-nav__brand">GALGAME会社</div>
       <div class="gal-side-nav__rail"></div>
@@ -68,10 +69,17 @@ const handleNavClick = (item) => {
 </script>
 
 <style scoped>
+
+*{
+margin: 0;
+padding: 0;
+
+
+}
 .gal-layout {
   display: flex;
   min-height: 100vh;
-  width: 100%;
+  width: 100vw;
 }
 
 /* 左側豎向導覽：天藍 ↔ 淡粉 水邊式漸層 */
