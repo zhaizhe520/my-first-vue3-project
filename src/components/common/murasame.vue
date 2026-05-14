@@ -1,6 +1,6 @@
 <script setup>
 // 從 vue 中引入生命週期鉤子和響應式 API
-import { onMounted, onUnmounted, ref, shallowRef } from 'vue';
+import { onMounted, onUnmounted, ref, shallowRef,computed } from 'vue';
 // 引入整個 PixiJS 繪圖引擎庫
 import * as PIXI from 'pixi.js';
 // 引入用於支持 Cubism 4 模型的 Live2D 顯示組件
@@ -18,7 +18,6 @@ const petStore = usePetStore()
 // 1. 引入你的打字機 js
 import { useTypewriter } from '@/utils/useTypewriter'
 
-import { computed } from 'vue'
 const message = computed(() => petStore.message) 
 const isVisible = computed(() => petStore.isVisible)
 

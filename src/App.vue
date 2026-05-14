@@ -46,7 +46,7 @@ const asyncPte = defineAsyncComponent({
 
   // 并且不会因为 App.vue 的生命周期而闪现消失
   loadingComponent: BoxAnime,
-  delay: 200 //超过2毫秒进入没加载出来进入BoxAnime组件?我那个live2dcubismcore.min.js要加载出来才能判断显示不显示，很烦
+  delay: 0 //超过2毫秒进入没加载出来进入BoxAnime组件?我那个live2dcubismcore.min.js要加载出来才能判断显示不显示，很烦
 })
 
 onMounted(() => {
