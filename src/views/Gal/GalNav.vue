@@ -1,6 +1,6 @@
 <template>
-  <div class="gal-layout">
-    <div class=""></div>
+  <div class="gal-layout" :class="{ 'is-nav-collapsed': !isNavVisible }">
+      <!-- 1. 为最外层绑定类名，由 isNavVisible 控制 -->
     <aside class="gal-side-nav" aria-label="側邊導覽">
       <div class="gal-side-nav__brand">GALGAME会社</div>
       <div class="gal-side-nav__rail"></div>
@@ -16,12 +16,16 @@
         </li>
       </ul>
       <div class="gal-side-nav__footer"></div>
+      <!-- 2. 控制按钮：放在 aside 内部或紧邻 aside -->
+      <button class="gal-nav-toggle" @click="toggleNav" aria-label="切换导航栏">
+        <span class="toggle-icon">{{ isNavVisible ? '◀' : '▶' }}</span>
+      </button>
     </aside>
 
     <main class="gal-main">
       <!-- 主內容，之后接功能 -->
       <!-- 逻辑或 (||) 运算符的 Vue 动态组件渲染写法 -->
-      <component :is="currentContent || GalHomeRight" />
+      <component :is="currentContent || GalHomeRight  " />
     </main>
   </div>
 
@@ -46,11 +50,15 @@ import GalKey from "./GalKey.vue"
 import GalPalette from "./GalPalette.vue"
 import GalAugust from "./GalAugust.vue"
 
-
 //轻量切换
-import { shallowRef } from 'vue'
-const currentContent = shallowRef(null) // 默认设为 GalYouZu
+import { shallowRef ,ref} from 'vue'
 
+const isNavVisible = ref(true)
+const currentContent = shallowRef(null)
+
+const toggleNav = () => {
+  isNavVisible.value = !isNavVisible.value
+}
 
 const navItems = [
   { id: 'home', label: '首頁', to: '/', icon: homeLogo,tip:'回到主页了哦！' }, // 这个保留路由跳转
@@ -69,24 +77,20 @@ const handleNavClick = (item) => {
 </script>
 
 <style scoped>
-
-*{
-margin: 0;
-padding: 0;
-
-
-}
+/* 1. 基础布局 */
 .gal-layout {
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
   width: 100vw;
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
 
-/* 左側豎向導覽：天藍 ↔ 淡粉 水邊式漸層 */
+/* 2. 左側豎向導覽：保留你的天藍 ↔ 淡粉 水邊式漸層，并加上动画 */
 .gal-side-nav {
   position: relative;
   flex-shrink: 0;
-  width: 220px;
+  width: 220px; /* 你的宽度 */
   min-height: 100vh;
   padding: 1.75rem 0 1.5rem;
   display: flex;
@@ -102,7 +106,46 @@ padding: 0;
       #fdf2f8 100%);
   box-shadow: 4px 0 24px rgba(56, 189, 248, 0.12), 2px 0 12px rgba(244, 114, 182, 0.08);
   border-right: 1px solid rgba(255, 255, 255, 0.55);
+  transition: margin-left 0.3s ease; /* 核心：加入平滑过渡 */
+  z-index: 100;
 }
+
+/* 3. 核心修复：状态为收起时，向左负边距隐藏侧边栏 */
+.is-nav-collapsed .gal-side-nav {
+  margin-left: -220px; /* 必须跟你的 width: 220px 保持一致 */
+}
+
+/* 4. 收缩按钮：改成了浅色毛玻璃风格，更搭配你的渐变色 */
+.gal-nav-toggle {
+  position: absolute;
+  top: 50%;
+  right: -20px;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #38bdf8;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-left: none;
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  transition: background 0.3s;
+}
+
+.gal-nav-toggle:hover {
+  background: #fff;
+  color: #f472b6; /* 悬停时变成粉色 */
+}
+
+.toggle-icon {
+  font-size: 12px;
+}
+
+/* --- 下面是你原本列表和 Item 的绝美样式，原封不动 --- */
 
 .gal-side-nav__brand {
   padding: 0 1.25rem 1.25rem;
@@ -151,12 +194,12 @@ a.gal-side-nav__item {
   color: inherit;
 }
 
-.gal-side-nav__item:hover {
+.gal-side-nav__item:hover, .gal-side-nav__item.is-active {
   color: rgba(15, 23, 42, 1);
-  border-color: rgba(255, 255, 255, 0.35);
+  border-color: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.2);
 }
 
-/* 有 icon 時：背景圖：之後在 navItems 該筆加 icon 即可 */
 .gal-side-nav__dot {
   flex-shrink: 0;
   width: 40px;

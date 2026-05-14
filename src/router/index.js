@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 // 引入所有頁面
 import Home from '@/views/Home/Home.vue'
-import GAL from '@/views/Gal/GAL.vue'
+import GAL  from '@/views/GAL/GalHome.vue'
 import Anime from '@/views/Anime/Anime.vue'
 import Light from '@/views/Light/Light.vue'
 
