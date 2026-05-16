@@ -45,6 +45,7 @@ import innocentgrey from "@/assets/Innocent Grey.png"
 import purplesoftware from "@/assets/Purple Software.png"
 import aLcot from "@/assets/ALcot.png"
 import favorite from "@/assets/FAVORITE.png"
+import leaf from "@/assets/Leaf.png"
 
 
 
@@ -65,9 +66,11 @@ import GalInnocentGrey from "./GalInnocentGrey.vue"
 import GalPurpleSoftware from "./GalPurpleSoftware.vue"
 import GalALcot from "./GalALcot.vue"
 import GalFAVORITE from "./GalFavorite.vue"
+import GalLeaf from "./GalLeaf.vue"
 
 //轻量切换
 import { shallowRef ,ref} from 'vue'
+
 
 
 
@@ -92,11 +95,12 @@ const navItems = [
   { id: 'game', label: 'August', icon: august, comp: GalAugust,tip:'这是八月社!' },
   { id: 'game', label: 'Lump of Sugar', icon: lumpofsugar , comp: GalLumpOfSugar,tip:'这是方糖社!' },
   { id: 'game', label: ' Navel', icon: navel , comp: GalNavel,tip:'这是脐橙社（橘子社）!' },
-  { id: 'game', label: 'Minori ', icon: minori , comp: GalMinori,tip:'这是中二社!' },
+  /*{ id: 'game', label: 'Minori ', icon: minori , comp: GalMinori,tip:'这是中二社!' },*/
   { id: 'gal', label: 'Innocent Grey ', icon: innocentgrey , comp: GalInnocentGrey,tip:'这是IG社!' },
   { id: 'gal', label: 'Purple Software ', icon: purplesoftware , comp: GalPurpleSoftware,tip:'这是紫社!' },
   { id: 'gal', label: 'ALcot', icon: aLcot , comp: GalALcot,tip:'这是彩牙社!' },
   { id: 'gal', label: 'FAVORITE', icon: favorite , comp: GalFAVORITE,tip:'这是F社!' },
+  { id: 'gal', label: 'Leaf', icon: leaf , comp: GalLeaf,tip:'这是叶子社!' },
 
 
 

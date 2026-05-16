@@ -1,5 +1,5 @@
 <template>
 
 
-    倒闭
+left
 </template>
