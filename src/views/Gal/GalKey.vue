@@ -9,8 +9,6 @@
 <script setup>
 import SwiperTwo from '@/components/common/SwiperTwo.vue';
 
-
-
 </script>
 
 

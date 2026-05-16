@@ -1,5 +1,4 @@
 <template>
-  
   <div class="container" 
        @mousedown="startRotate" 
        @touchstart="startRotate"
@@ -10,23 +9,17 @@
        @touchend="stopRotate">
     
     <div class="cube" :style="cubeStyle">
-      <div class="face front" v-pet-tip="'乾纱凪！纯白交响曲！'">
-        <img src="http://110.42.248.8:8080/wp-content/uploads/2026/05/Inui-Sana.jpg" alt="">
-      </div>
-      <div class="face back">
-        <img src="" alt="">
-      </div>
-      <div class="face left">
-        <img src="" alt="">
-      </div>
-      <div class="face right">
-        <img src="" alt="">
-      </div>
-      <div class="face top">
-        <img src="" alt="">
-      </div>
-      <div class="face bottom">
-        <img src="" alt="">
+      <!-- 🌟 核心改动：用 v-for 代替写死的 6 个面 -->
+      <!-- :class="['face', faceClasses[index]]" 会动态生成 face front, face back 等类名 -->
+      <!-- v-pet-tip 动态绑定每一项的提示语，如果没有传，就用默认提示 -->
+      <div 
+        v-for="(item, index) in list" 
+        :key="index"
+        :class="['face', faceClasses[index]]"
+        v-pet-tip="item.tip || '忘记绑定了'"
+      >
+        <!-- 图片路径动态绑定 -->
+        <img :src="item.url" alt="图片">
       </div>
     </div>
     
@@ -36,7 +29,7 @@
 
 <script setup>
 import { ref, computed } from 'vue';
-
+const faceClasses = ['front', 'back', 'left', 'right', 'top', 'bottom'];
 // 旋转角度状态
 const rotateX = ref(-25); // 初始仰角
 const rotateY = ref(45);  // 初始偏角
@@ -82,6 +75,13 @@ const rotating = (e) => {
 const stopRotate = () => {
   isDragging = false;
 };
+
+defineProps({
+  list: {
+    type: Array,
+    default: () => []// 如果父组件没传，默认是一个空数组 []
+  }
+});
 </script>
 
 <style scoped>
