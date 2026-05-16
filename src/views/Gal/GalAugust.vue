@@ -11,7 +11,6 @@ import SwiperThree from '@/components/common/SwiperThree.vue';
 
 
 
-
 </script>
 
 
@@ -19,11 +18,6 @@ import SwiperThree from '@/components/common/SwiperThree.vue';
 .container{
     width: 100%;
     height: 700px;
-
-
 }
-
-
-
 
 </style>

@@ -4,8 +4,7 @@
   </section>
   <section class="pageContainer">
     <div class="passage">
-
-
+      你好
     </div>
   </section>
 </template>
@@ -58,15 +57,16 @@ const imgList = ref([
 .omniCubeContainer {
   width: 100%;
   height: 500px;
-  background-color: antiquewhite;
+  background-image: url("http://110.42.248.8:8080/wp-content/uploads/2026/05/backgorund.jpg");
 }
 
 .pageContainer {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  background-image: url("http://110.42.248.8:8080/wp-content/uploads/2026/05/backgorund.jpg");
 }
-
 .passage {
   width: 80%;
   height: 1200px;
