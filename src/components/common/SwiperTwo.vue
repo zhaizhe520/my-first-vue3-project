@@ -53,13 +53,13 @@ import 'swiper/css/effect-fade';
 const modules = [Thumbs, Autoplay, EffectFade];
 
 const images = ref([
-  { img: 'http://110.42.248.8:8080/wp-content/uploads/2026/05/Heaven-Burns-Red.jpg', thumb: 'http://110.42.248.8:8080/wp-content/uploads/2026/05/Heaven-Burns-Red.jpg', alt: '海报1' },
-  { img: 'https://picsum.photos/1200/600?random=2', thumb: 'https://picsum.photos/300/150?random=2', alt: '海报2' },
-  { img: 'https://picsum.photos/1200/600?random=3', thumb: 'https://picsum.photos/300/150?random=3', alt: '海报3' },
-  { img: 'https://picsum.photos/1200/600?random=4', thumb: 'https://picsum.photos/300/150?random=4', alt: '海报4' },
-  { img: 'https://picsum.photos/1200/600?random=5', thumb: 'https://picsum.photos/300/150?random=5', alt: '海报5' },
-  { img: 'https://picsum.photos/1200/600?random=6', thumb: 'https://picsum.photos/300/150?random=6', alt: '海报6' },
-  { img: 'https://picsum.photos/1200/600?random=7', thumb: 'https://picsum.photos/300/150?random=7', alt: '海报7' },
+  { img: '', thumb: '', alt: '海报1' },
+  { img: '', thumb: '', alt: '海报2' },
+  { img: '', thumb: '', alt: '海报3' },
+  { img: '', thumb: '', alt: '海报4' },
+  { img: '', thumb: '', alt: '海报5' },
+  { img: '', thumb: '', alt: '海报6' },
+  { img: '', thumb: '', alt: '海报7' },
 ]);
 
 const mainSwiperInstance = ref(null);
@@ -188,14 +188,14 @@ onUnmounted(() => {
 }
 
 :deep(.thumbs-swiper .swiper-slide-thumb-active) {
-  box-shadow: inset 0 0 0 3px #df8181 ;
+  box-shadow: inset 0 0 0 3px #ffffff ;
   transform: scale(0.98); 
 }
 
 .thumbs-swiper img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 /* ==========================================================================
