@@ -1,6 +1,5 @@
 <template>
 <div class="container">
-<SwiperTwo />
 
 </div>
 
@@ -12,7 +11,7 @@
 
 
 <script setup>
-import SwiperTwo from '@/components/common/SwiperTwo.vue';
+
 
 
 

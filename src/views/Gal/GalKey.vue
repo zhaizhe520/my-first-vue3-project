@@ -11,15 +11,6 @@ import SwiperTwo from '@/components/common/SwiperTwo.vue';
 
 
 
-//传值给SwiperOne
-
-
-props:{
-
-
-}
-
-
 </script>
 
 

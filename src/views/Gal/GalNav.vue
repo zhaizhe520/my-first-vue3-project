@@ -80,7 +80,7 @@ const handleNavClick = (item) => {
 /* 1. 基础布局 */
 .gal-layout {
   display: flex;
-  height: 100vh;
+  height: auto;
   width: 100vw;
   overflow: hidden;
   transition: all 0.3s ease;

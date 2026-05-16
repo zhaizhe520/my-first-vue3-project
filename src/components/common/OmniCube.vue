@@ -10,8 +10,8 @@
        @touchend="stopRotate">
     
     <div class="cube" :style="cubeStyle">
-      <div class="face front">
-        <img src="" alt="">
+      <div class="face front" v-pet-tip="'乾纱凪！纯白交响曲！'">
+        <img src="http://110.42.248.8:8080/wp-content/uploads/2026/05/Inui-Sana.jpg" alt="">
       </div>
       <div class="face back">
         <img src="" alt="">
@@ -108,7 +108,16 @@ const stopRotate = () => {
   transform-style: preserve-3d;
   transition: transform 0.1s ease-out; /* 增加一点平滑感 */
 }
+.cube img{
+ width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center; /* 圖片居中裁切 */
 
+  pointer-events: none;
+
+
+}
 /* 每个面的通用样式 */
 .face {
   position: absolute;
