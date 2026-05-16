@@ -1,17 +1,23 @@
 <template>
     <div class="swiperContainer">
-        <SwiperOne />
-
-
+        <SwiperTwo />
     </div>
 
 
 </template>
 
 <script setup>
-import SwiperOne from '@/components/common/SwiperOne.vue';
+import SwiperTwo from '@/components/common/SwiperTwo.vue';
 
 
+
+//传值给SwiperOne
+
+
+props:{
+
+
+}
 
 
 </script>
@@ -19,10 +25,7 @@ import SwiperOne from '@/components/common/SwiperOne.vue';
 
 <style scoped>
 .swiperContainer{
-
-width: 500px;
-height: 300px;
-
-
+width: 100%;
+height: 600px;
 }
 </style>
