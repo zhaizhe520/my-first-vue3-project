@@ -1,3 +1,4 @@
+//轻小说接口
 import { defineStore } from 'pinia'
 import axios from 'axios'
 const PAGE_COUNT = 100

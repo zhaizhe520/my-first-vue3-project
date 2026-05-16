@@ -1,4 +1,4 @@
-//GAL组件categories=10里面的图片抓取
+//GAL组件categories=10里面的图片抓取接口
 
 import { defineStore } from 'pinia'
 import axios from 'axios' // 
@@ -22,7 +22,7 @@ export const useGalGameStore = defineStore('work', {
           }
         })
         // 把抓到的数组赋值给 state
-        this.swiperData = response.data
+        this.GalImgData = response.data
       } catch (error) {
         console.error('抓取失败:', error)
       } finally {
