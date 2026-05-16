@@ -8,8 +8,8 @@
 
     <div class="bottom-buttons">
       <button @click="prevPage" :disabled="currentPage === 1">←</button>
-      <div class="page-num">{{ currentPage }} / 4</div>
-      <button @click="nextPage" :disabled="currentPage === 4">→</button>
+      <div class="page-num">{{ currentPage }} / 100</div>
+      <button @click="nextPage" :disabled="currentPage === 100">→</button>
     </div>
   </div>
 </template>
@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     prevPage() { if (this.currentPage > 1) this.currentPage-- },
-    nextPage() { if (this.currentPage < 4) this.currentPage++ }
+    nextPage() { if (this.currentPage < 100) this.currentPage++ }
   },
   mounted() {
     // 組件掛載後抓取數據

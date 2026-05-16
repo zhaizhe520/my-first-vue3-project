@@ -1,14 +1,16 @@
 import { defineStore } from 'pinia'
 import axios from 'axios'
+const PAGE_COUNT = 100
 
 export const useWorkStore = defineStore('work', {
   state: () => ({
-    // 初始化為空對象，等待 API 填充
-    pageAllData: {
-      1: [], 2: [], 3: [], 4: []
-    },
+    // 动态生成 { 1: [], 2: [], 3: [], 4: [] }
+    pageAllData: Object.fromEntries(
+      Array.from({ length: PAGE_COUNT }, (_, i) => [i + 1, []])
+    ),
     isLoading: false
   }),
+
   actions: {
     async fetchWpPosts() {
       this.isLoading = true
