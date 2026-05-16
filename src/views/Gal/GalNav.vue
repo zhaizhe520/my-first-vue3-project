@@ -28,7 +28,6 @@
       <component :is="currentContent || GalHomeRight  " />
     </main>
   </div>
-
 </template>
 
 <script setup>
@@ -37,8 +36,18 @@ import yusoft from "@/assets/yuzusoft-logo.png"
 import homeLogo from "@/assets/noacg-logo.png"
 import alicesoft from "@/assets/A-logo.png"
 import keylogo from "@/assets/key_logo.png"
-import pltlogo from "@/assets/palatelogo.png"
+import palettelogo from "@/assets/palettelogo.png"
 import august from "@/assets/august-soft.png"
+import lumpofsugar from "@/assets/Lump of Sugar.png"
+import navel from "@/assets/navel.jpg"
+import minori from "@/assets/minori.png"
+import innocentgrey from "@/assets/Innocent Grey.png"
+import purplesoftware from "@/assets/Purple Software.png"
+import aLcot from "@/assets/ALcot.png"
+import favorite from "@/assets/FAVORITE.png"
+
+
+
 
 
 //右边GalHomeRight组件
@@ -49,9 +58,23 @@ import GalAlice from "./GalAlice.vue"
 import GalKey from "./GalKey.vue"
 import GalPalette from "./GalPalette.vue"
 import GalAugust from "./GalAugust.vue"
+import GalLumpOfSugar from "./GalLumpOfSugar.vue"
+import GalNavel from "./GalNavel.vue"
+import GalMinori from "./GalMinori.vue"
+import GalInnocentGrey from "./GalInnocentGrey.vue"
+import GalPurpleSoftware from "./GalPurpleSoftware.vue"
+import GalALcot from "./GalALcot.vue"
+import GalFAVORITE from "./GalFavorite.vue"
 
 //轻量切换
 import { shallowRef ,ref} from 'vue'
+
+
+
+
+
+
+
 
 const isNavVisible = ref(true)
 const currentContent = shallowRef(null)
@@ -62,11 +85,21 @@ const toggleNav = () => {
 
 const navItems = [
   { id: 'home', label: '首頁', to: '/', icon: homeLogo,tip:'回到主页了哦！' }, // 这个保留路由跳转
-  { id: 'gallery', label: 'YUZU SOFT', icon: yusoft, comp: GalYouZu ,tip:'这是柚子社!'}, // 增加 comp 属性
-  { id: 'chars', label: 'ALICESOFT', icon: alicesoft, comp: GalAlice ,tip:'这是A社!'},
+  { id: 'gallery', label: 'YuZuSoft', icon: yusoft, comp: GalYouZu ,tip:'这是柚子社!'}, // 增加 comp 属性
+  { id: 'chars', label: 'AliceSOFT', icon: alicesoft, comp: GalAlice ,tip:'这是A社!'},
   { id: 'story', label: 'Key', icon: keylogo, comp: GalKey,tip:'这是Key社!' },
-  { id: 'contact', label: 'Palette', icon: pltlogo, comp: GalPalette,tip:'这是板油社!' },
+  { id: 'contact', label: 'Palette', icon: palettelogo, comp: GalPalette,tip:'这是板油社!' },
   { id: 'game', label: 'August', icon: august, comp: GalAugust,tip:'这是八月社!' },
+  { id: 'game', label: 'Lump of Sugar', icon: lumpofsugar , comp: GalLumpOfSugar,tip:'这是方糖社!' },
+  { id: 'game', label: ' Navel', icon: navel , comp: GalNavel,tip:'这是脐橙社（橘子社）!' },
+  { id: 'game', label: 'Minori ', icon: minori , comp: GalMinori,tip:'这是中二社!' },
+  { id: 'gal', label: 'Innocent Grey ', icon: innocentgrey , comp: GalInnocentGrey,tip:'这是IG社!' },
+  { id: 'gal', label: 'Purple Software ', icon: purplesoftware , comp: GalPurpleSoftware,tip:'这是紫社!' },
+  { id: 'gal', label: 'ALcot', icon: aLcot , comp: GalALcot,tip:'这是彩牙社!' },
+  { id: 'gal', label: 'FAVORITE', icon: favorite , comp: GalFAVORITE,tip:'这是F社!' },
+
+
+
 ]
 // 切换函数
 const handleNavClick = (item) => {
