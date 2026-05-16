@@ -46,6 +46,9 @@ import purplesoftware from "@/assets/Purple Software.png"
 import aLcot from "@/assets/ALcot.png"
 import favorite from "@/assets/FAVORITE.png"
 import leaf from "@/assets/Leaf.png"
+import circus from "@/assets/Circus.png"
+import nitroplus from "@/assets/NitroPlus.png"
+import MAGES from "@/assets/5bp..png"
 
 
 
@@ -67,9 +70,13 @@ import GalPurpleSoftware from "./GalPurpleSoftware.vue"
 import GalALcot from "./GalALcot.vue"
 import GalFAVORITE from "./GalFavorite.vue"
 import GalLeaf from "./GalLeaf.vue"
+import GalNitroPlus from "./GalNitroPlus.vue"
+import Gal5pb from "./Gal5pb..vue"
 
 //轻量切换
 import { shallowRef ,ref} from 'vue'
+
+
 
 
 
@@ -101,6 +108,10 @@ const navItems = [
   { id: 'gal', label: 'ALcot', icon: aLcot , comp: GalALcot,tip:'这是彩牙社!' },
   { id: 'gal', label: 'FAVORITE', icon: favorite , comp: GalFAVORITE,tip:'这是F社!' },
   { id: 'gal', label: 'Leaf', icon: leaf , comp: GalLeaf,tip:'这是叶子社!' },
+  { id: 'gal', label: 'Circus', icon: circus , comp: GalLeaf,tip:'这是马戏团社!' },
+  { id: 'gal', label: 'NitroPlus', icon: nitroplus , comp: GalNitroPlus,tip:'这是N + 社!(虚渊玄老东家)' },
+  { id: 'gal', label: '5pb.', icon: MAGES , comp: Gal5pb,tip:'这是5pb.社 !' },
+
 
 
 
