@@ -1,4 +1,4 @@
-icon:<template>
+<template>
   <div class="gal-layout" :class="{ 'is-nav-collapsed': !isNavVisible }">
       <!-- 1. 为最外层绑定类名，由 isNavVisible 控制 -->
     <aside class="gal-side-nav" aria-label="側邊導覽">
