@@ -115,8 +115,7 @@ const isNavVisible = ref(true)
 const currentContent = shallowRef(null)
 const mainRef = ref(null)
 
-const scrollGalHomeToTop = () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' })
+const scrollMainToTop = () => {
   mainRef.value?.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
@@ -161,7 +160,7 @@ const handleNavClick = async (item) => {
   }
   if (item.icon) {
     await nextTick()
-    scrollGalHomeToTop()
+    scrollMainToTop()
   }
 }
 </script>
@@ -170,8 +169,8 @@ const handleNavClick = async (item) => {
 /* 1. 基础布局 */
 .gal-layout {
   display: flex;
-  height: auto;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   overflow: hidden;
   transition: all 0.3s ease;
 }
@@ -180,12 +179,13 @@ const handleNavClick = async (item) => {
 .gal-side-nav {
   position: relative;
   flex-shrink: 0;
-  width: 220px; /* 你的宽度 */
-  min-height: 100vh;
+  width: 220px;
+  height: 100%;
   padding: 1.75rem 0 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  overflow: hidden;
   background: linear-gradient(165deg,
       #38bdf8 0%,
       #7dd3fc 22%,
@@ -259,6 +259,15 @@ const handleNavClick = async (item) => {
   margin: 0;
   padding: 0 0.65rem;
   flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.gal-side-nav__list::-webkit-scrollbar {
+  display: none;
 }
 
 .gal-side-nav__row {
@@ -331,7 +340,9 @@ a.gal-side-nav__item {
 .gal-main {
   flex: 1;
   min-height: 0;
+  height: 100%;
   background: #fafafa;
   overflow-y: auto;
+  overscroll-behavior: contain;
 }
 </style>
