@@ -52,15 +52,25 @@ import 'swiper/css/effect-fade';
 
 const modules = [Thumbs, Autoplay, EffectFade];
 
-const images = ref([
-  { img: '', thumb: '', alt: '海报1' },
-  { img: '', thumb: '', alt: '海报2' },
-  { img: '', thumb: '', alt: '海报3' },
-  { img: '', thumb: '', alt: '海报4' },
-  { img: '', thumb: '', alt: '海报5' },
-  { img: '', thumb: '', alt: '海报6' },
-  { img: '', thumb: '', alt: '海报7' },
-]);
+//const images = ref([
+//  { img: '', thumb: '', alt: '海报1' },
+//  { img: '', thumb: '', alt: '海报2' },
+//  { img: '', thumb: '', alt: '海报3' },
+//  { img: '', thumb: '', alt: '海报4' },
+//  { img: '', thumb: '', alt: '海报5' },
+//  { img: '', thumb: '', alt: '海报6' },
+//  { img: '', thumb: '', alt: '海报7' },
+//]);
+
+defineProps({
+  images:{
+    type:Array,
+    required: true, // 意思是父组件必须传这个值
+    default:()=>[]
+    
+  }
+
+})
 
 const mainSwiperInstance = ref(null);
 const thumbsSwiper = ref(null);
@@ -195,7 +205,7 @@ onUnmounted(() => {
 .thumbs-swiper img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 /* ==========================================================================

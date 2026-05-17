@@ -4,8 +4,8 @@
     <OmniCube :list="imgList2"/>
   </section>
   <section class="pageContainer">
-    <div class="passage">
-      你好
+    <div class="contents">
+      <GalPaletteContent />
     </div>
   </section>
 </template>
@@ -14,6 +14,7 @@
 <script setup>
 import { ref } from 'vue'
 import OmniCube from '@/components/common/OmniCube.vue';
+import GalPaletteContent from './GalPaletteContent.vue';
 
 const imgListCube1 = ref([
   {
@@ -51,8 +52,8 @@ const imgListCube1 = ref([
 ]);
 const imgList2 = ref([
   {
-    url: '',
-    tip: ''
+    url: 'http://110.42.248.8:8080/wp-content/uploads/2026/05/あかね色に染まる坂.png',
+    tip: '茜色染红的坡道'
   },
   {
     url: '',
@@ -105,7 +106,7 @@ const imgList2 = ref([
   position: relative;
   background-image: url("http://110.42.248.8:8080/wp-content/uploads/2026/05/backgorund.jpg");
 }
-.passage {
+.contents{
   width: 80%;
   height: 1200px;
   background-color: rgb(190, 245, 245);
