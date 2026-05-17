@@ -1,6 +1,7 @@
 <template>
   <section class="omniCubeContainer">
-    <OmniCube :list="imgList" />
+    <OmniCube :list="imgListCube1" />
+    <OmniCube :list="imgList2"/>
   </section>
   <section class="pageContainer">
     <div class="passage">
@@ -14,7 +15,7 @@
 import { ref } from 'vue'
 import OmniCube from '@/components/common/OmniCube.vue';
 
-const imgList = ref([
+const imgListCube1 = ref([
   {
     url: 'http://110.42.248.8:8080/wp-content/uploads/2026/05/Inui-Sana.jpg',
     tip: '纯白交响曲的乾纱凪学姐哦！'
@@ -48,6 +49,40 @@ const imgList = ref([
   },
 
 ]);
+const imgList2 = ref([
+  {
+    url: '',
+    tip: ''
+  },
+  {
+    url: '',
+    tip: ''
+  },
+  {
+    url: '',
+    tip: ''
+  },
+
+  {
+    url: '',
+    tip: ''
+
+  },
+
+  {
+    url: '',
+    tip: ''
+
+
+  },
+
+  {
+    url: '',
+    tip: ''
+
+  },
+
+]);
 
 
 </script>
@@ -55,6 +90,9 @@ const imgList = ref([
 
 <style scoped>
 .omniCubeContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 500px;
   background-image: url("http://110.42.248.8:8080/wp-content/uploads/2026/05/backgorund.jpg");

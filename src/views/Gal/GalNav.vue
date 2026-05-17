@@ -112,9 +112,6 @@ const navItems = [
   { id: 'gal', label: 'NitroPlus', icon: nitroplus , comp: GalNitroPlus,tip:'这是N + 社!(虚渊玄老东家)' },
   { id: 'gal', label: '5pb.', icon: MAGES , comp: Gal5pb,tip:'这是5pb.社 !' },
 
-
-
-
 ]
 // 切换函数
 const handleNavClick = (item) => {
