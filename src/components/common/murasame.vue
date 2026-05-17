@@ -161,15 +161,25 @@ canvas {
 }
 .pet-dialog {
   position: absolute;
-  bottom: 100%; /* 讓它出現在模型頭部附近 */
-  left: 10%;
+  bottom: 100%; 
+  left: 5%;
   transform: translateX(-50%);
-  z-index: 999; /* 確保在 canvas 之上 */
+  z-index: 999; 
   background: white;
   padding: 10px;
   border-radius: 8px;
-  /* 暫時給個邊框確保能看見 */
   border: 2px solid #ffb7c5; 
-  min-width: 50px;
+  min-width: 30px;
+  /* 留出一点底部距离，防止尾巴贴到模型太紧，可以根据需要调整 */
+  margin-bottom: 10px; 
+}
+
+/* 核心代码：制造小尾巴 */
+.pet-dialog::after {
+  content: "";
+  position: absolute;
+  bottom: -10px; /* 把它定位到方框的底部外部 */
+  left: 50%;
+  transform: translateX(-50%);
 }
 </style>
