@@ -1,6 +1,8 @@
 <script setup>
 // 從 vue 中引入生命週期鉤子和響應式 API
-import { onMounted, onUnmounted, ref, shallowRef,computed } from 'vue';
+import { onMounted, onUnmounted, ref, shallowRef, computed } from 'vue';
+
+const emit = defineEmits(['loaded'])
 // 引入整個 PixiJS 繪圖引擎庫
 import * as PIXI from 'pixi.js';
 // 引入用於支持 Cubism 4 模型的 Live2D 顯示組件
@@ -94,6 +96,7 @@ onMounted(async () => {
 
     // 在控制台打印加載成功的訊息
     console.log('叢雨已加載完成');
+    emit('loaded');
   } catch (error) {
     // 如果加載過程中出現錯誤（如路徑錯誤），在控制台輸出錯誤訊息
     console.error('Live2D 加載失敗:', error);

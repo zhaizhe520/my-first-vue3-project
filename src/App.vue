@@ -5,10 +5,10 @@
   <router-view  />
   <!-- 以後你加底部組件也放這裡，所有頁面都顯示 -->
 
-  <!--murasame的懒加载組件-->
-  <asyncPte v-if="isReady" />
-  <!--murasame站位组件-->
-  <BoxAnime  v-else/>
+  <!--murasame的懒加载組件（后台静默加载，模型就绪前不可见）-->
+  <asyncPte v-if="startLoad" :style="{ visibility: modelLoaded ? 'visible' : 'hidden' }" @loaded="onModelLoaded" />
+  <!--murasame站位组件（模型就绪前一直显示）-->
+  <BoxAnime v-if="!modelLoaded" />
 
   <!--页脚-->
   <FooterBox/>
@@ -34,24 +34,20 @@ import BoxAnime from './components/common/BoxAnime.vue';
 const route = useRoute()
 
 // murasame组件做懒加载
-const isReady = ref(false)
+const startLoad = ref(false)
+const modelLoaded = ref(false)
 
-const asyncPte = defineAsyncComponent({
-  loader: () => new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(import('./components/common/murasame.vue'))
-    }, 5000)
-  }),
-  // 【重点】Vue 内部会处理：在 loader 没完成前，它会一直显示这个组件
+const asyncPte = defineAsyncComponent(() =>
+  import('./components/common/murasame.vue')
+)
 
-  // 并且不会因为 App.vue 的生命周期而闪现消失
-  loadingComponent: BoxAnime,
-  delay: 0 //超过2毫秒进入没加载出来进入BoxAnime组件?我那个live2dcubismcore.min.js要加载出来才能判断显示不显示，很烦
-})
+function onModelLoaded() {
+  modelLoaded.value = true
+}
 
 onMounted(() => {
-  isReady.value = true // 挂载后开启显示
-  
+  // 给 BoxAnime 一点时间先渲染，再开始后台加载 murasame
+  startLoad.value = true
 })
 
 
