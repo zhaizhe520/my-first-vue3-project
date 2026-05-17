@@ -16,11 +16,11 @@ icon:<template>
         </li>
       </ul>
       <div class="gal-side-nav__footer"></div>
-      <!-- 2. 控制按钮：放在 aside 内部或紧邻 aside -->
-      <button class="gal-nav-toggle" @click="toggleNav" aria-label="切换导航栏">
-        <span class="toggle-icon">{{ isNavVisible ? '◀' : '▶' }}</span>
-      </button>
     </aside>
+
+    <button class="gal-nav-toggle" @click="toggleNav" :aria-label="isNavVisible ? '收起导航栏' : '展开导航栏'">
+      <span class="toggle-icon">{{ isNavVisible ? '◀' : '▶' }}</span>
+    </button>
 
     <main ref="mainRef" class="gal-main">
       <!-- 主內容，之后接功能 -->
@@ -205,11 +205,11 @@ const handleNavClick = async (item) => {
   margin-left: -220px; /* 必须跟你的 width: 220px 保持一致 */
 }
 
-/* 4. 收缩按钮：改成了浅色毛玻璃风格，更搭配你的渐变色 */
+/* 4. 收缩按钮：移出 aside，相对于 gal-layout 定位，始终可见 */
 .gal-nav-toggle {
   position: absolute;
   top: 50%;
-  right: -20px;
+  left: 220px;
   transform: translateY(-50%);
   width: 20px;
   height: 60px;
@@ -223,7 +223,13 @@ const handleNavClick = async (item) => {
   align-items: center;
   justify-content: center;
   box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-  transition: background 0.3s;
+  transition: left 0.3s ease, background 0.3s;
+  z-index: 101;
+}
+
+.is-nav-collapsed .gal-nav-toggle {
+  left: 0;
+  border-radius: 8px 0 0 8px;
 }
 
 .gal-nav-toggle:hover {
