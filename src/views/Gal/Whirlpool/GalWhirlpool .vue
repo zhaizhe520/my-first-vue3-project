@@ -1,0 +1,3 @@
+<template>
+    whirlpool
+</template>
