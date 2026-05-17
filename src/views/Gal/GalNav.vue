@@ -1,4 +1,4 @@
-<template>
+icon:<template>
   <div class="gal-layout" :class="{ 'is-nav-collapsed': !isNavVisible }">
       <!-- 1. 为最外层绑定类名，由 isNavVisible 控制 -->
     <aside class="gal-side-nav" aria-label="側邊導覽">
@@ -22,7 +22,7 @@
       </button>
     </aside>
 
-    <main class="gal-main">
+    <main ref="mainRef" class="gal-main">
       <!-- 主內容，之后接功能 -->
       <!-- 逻辑或 (||) 运算符的 Vue 动态组件渲染写法 -->
       <component :is="currentContent || GalHomeRight  " />
@@ -93,7 +93,7 @@ import GalPullTop from "./PULLTOP/GalPullTop.vue"
 
 
 //轻量切换
-import { shallowRef ,ref} from 'vue'
+import { shallowRef, ref, nextTick } from 'vue'
 
 
 
@@ -113,6 +113,12 @@ import { shallowRef ,ref} from 'vue'
 
 const isNavVisible = ref(true)
 const currentContent = shallowRef(null)
+const mainRef = ref(null)
+
+const scrollGalHomeToTop = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+  mainRef.value?.scrollTo({ top: 0, behavior: 'smooth' })
+}
 
 const toggleNav = () => {
   isNavVisible.value = !isNavVisible.value
@@ -149,9 +155,13 @@ const navItems = [
 
 ]
 // 切换函数
-const handleNavClick = (item) => {
+const handleNavClick = async (item) => {
   if (item.comp) {
     currentContent.value = item.comp
+  }
+  if (item.icon) {
+    await nextTick()
+    scrollGalHomeToTop()
   }
 }
 </script>
@@ -320,7 +330,8 @@ a.gal-side-nav__item {
 
 .gal-main {
   flex: 1;
-  min-height: 100vh;
+  min-height: 0;
   background: #fafafa;
+  overflow-y: auto;
 }
 </style>
