@@ -1,12 +1,17 @@
 <template>
-    <section class="container">
+    <section class="container" v-pet-tip="'八月社作品！'">
         <SwiperThree :images="images" :autoplay="{ delay: 3000 }" :loop="true" />
+    </section>
+    <section>
+        <GalAugustContent/>
+
     </section>
 </template>
 
 <script setup>
 import SwiperThree from '@/components/common/SwiperThree.vue'
-
+import GalAugustContent from './GalAugustContent.vue';
+//传给SwiperThree.vue
 const images = [
   { img: 'https://picsum.photos/id/1015/900/500', alt: '风景1', title: '山间溪流', desc: 'August 社作品' },
   { img: 'https://picsum.photos/id/1016/900/500', alt: '风景2', title: '雪山远景', desc: 'August 社作品' },
