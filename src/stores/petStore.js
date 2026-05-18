@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 
 export const usePetStore = defineStore('pet', {
   state: () => ({
-    message: '',
+    message: '我是站娘丛雨!有什么可以帮助你的吗？',
     isVisible: false,
     lastTrigger: null // 紀錄最後一個觸發的組件 ID，防止閃爍
   }),
