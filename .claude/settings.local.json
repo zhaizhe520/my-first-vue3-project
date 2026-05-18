@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 \"c:/Users/Yasina/my-first-vue-project/.claude/skills/ui-ux-pro-max/scripts/search.py\" \"portfolio frontend developer vibrant creative\" --design-system -p \"Frontend Portfolio\" -f markdown)",
+      "Bash(python \"c:/Users/Yasina/my-first-vue-project/.claude/skills/ui-ux-pro-max/scripts/search.py\" \"portfolio frontend developer vibrant creative\" --design-system -p \"Frontend Portfolio\" -f markdown)"
+    ]
+  }
+}

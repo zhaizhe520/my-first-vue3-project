@@ -1,16 +1,10 @@
 <template>
-<div class="container">
-
-</div>
-
-
-
-
-
+<GalYouzuContent/>
 </template>
 
 
 <script setup>
+import GalYouzuContent from './GalYouzuContent.vue';
 
 
 
@@ -18,15 +12,5 @@
 
 </script>
 
-<style scoped>
-
-.container{
-width: 100%;
-height: 600px;
 
 
-}
-
-
-
-</style>
