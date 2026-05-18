@@ -20,7 +20,7 @@ const images = [
 <style >
 .container{
     width: 100%;
-    height: 700px;
+    height: 400px;
 }
 
 </style>
