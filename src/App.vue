@@ -32,7 +32,6 @@ import BoxAnime from './components/common/BoxAnime.vue';
 
 
 const route = useRoute()
-
 // murasame组件做懒加载
 const startLoad = ref(false)
 const modelLoaded = ref(false)
