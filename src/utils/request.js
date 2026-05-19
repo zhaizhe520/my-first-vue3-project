@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { useGlobalStore } from '../stores/loadingStore' // 引入上面的全局信号灯
+import { useGlobalStore } from '../stores/loadingGlobalStore' // 引入上面的全局信号灯
 
 // 1. 创建一个标准的 axios 实例
 const request = axios.create({
