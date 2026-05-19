@@ -71,27 +71,6 @@ export const useWorkStore = defineStore('work', {
 
           })
         }
-        // ==================== 💡 【新加代码：图片预加载】 ====================
-        // 2. 放在 try 的最后面。定义一个预加载工具函数
-        const loadImages = (urls) => {
-          return Promise.all(urls.map(url => {
-            return new Promise((resolve) => {
-              if (!url) return resolve() // 没图片直接跳过
-              const img = new Image()
-              img.src = url
-              // 关键：浏览器下载完这张图后，才会触发 resolve()
-              img.onload = () => resolve() 
-              img.onerror = () => resolve() // 就算图片加载失败也放行，防止页面卡死
-            })
-          }))
-        }
-
-        // 3. 提取第 1 页这 8 本小说的封面图片 URL 变成一个纯数组
-        const currentImages = this.pageAllData[1].map(item => item.imgSrc)
-
-        // 4. ⭐ 核心卡点：使用 await 拦截在这里！
-        // 只有等这 8 张图片全部被浏览器下载到本地缓存后，代码才会继续往下走
-        await loadImages(currentImages)
       } catch (error) {
         console.error('抓取 WP 數據失敗:', error)
       }
