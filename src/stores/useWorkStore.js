@@ -1,8 +1,6 @@
 //轻小说接口
 import { defineStore } from 'pinia'
-
-import request from '../utils/request'
-
+import axios from 'axios'
 const PAGE_COUNT = 100
 
 export const useWorkStore = defineStore('work', {
@@ -16,13 +14,15 @@ export const useWorkStore = defineStore('work', {
 
   actions: {
     async fetchWpPosts() {
-      
+      this.isLoading = true
       try {
         // 1. 使用 _embed 確保一次拿回圖片和內容
-        const allPosts = await request.get('http://110.42.248.8/wp-json/wp/v2/posts?categories=9&_embed')
+        const res = await axios.get('http://110.42.248.8/wp-json/wp/v2/posts?categories=9&_embed&per_page=100')
+        const allPosts = res.data
 
         const pageSize = 8
-        for (let i = 0; i < 4; i++) {
+        const totalPages = Math.ceil(allPosts.length / pageSize)
+        for (let i = 0; i < totalPages; i++) {
           const start = i * pageSize
           const pagePosts = allPosts.slice(start, start + pageSize)
 
@@ -40,7 +40,7 @@ export const useWorkStore = defineStore('work', {
             // 從 content.rendered 中按 </p> 標籤分割文章
             const paragraphs = post.content.rendered.split('</p>')
 
-            // 輔助函式：提取純文字並去標籤,正则表达式
+            // 輔助函式：提取純文字並去標籤
             const getParaText = (index) => {
               if (paragraphs[index]) {
                 return paragraphs[index].replace(/<[^>]+>/g, '').trim()
@@ -68,11 +68,12 @@ export const useWorkStore = defineStore('work', {
               text6: getParaText(5),
               tagList: tagNames,
             }
-
           })
         }
       } catch (error) {
         console.error('抓取 WP 數據失敗:', error)
+      } finally {
+        this.isLoading = false
       }
     }
   }
