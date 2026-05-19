@@ -39,7 +39,7 @@ export const useWorkStore = defineStore('work', {
             // 從 content.rendered 中按 </p> 標籤分割文章
             const paragraphs = post.content.rendered.split('</p>')
 
-            // 輔助函式：提取純文字並去標籤
+            // 輔助函式：提取純文字並去標籤,正则表达式
             const getParaText = (index) => {
               if (paragraphs[index]) {
                 return paragraphs[index].replace(/<[^>]+>/g, '').trim()
@@ -77,3 +77,4 @@ export const useWorkStore = defineStore('work', {
     }
   }
 })
+//拦截器实现路由守卫
