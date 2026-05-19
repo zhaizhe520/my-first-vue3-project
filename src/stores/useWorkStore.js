@@ -1,6 +1,6 @@
 //轻小说接口
 import { defineStore } from 'pinia'
-import axios from 'axios'
+import request from '@/utils/request'
 const PAGE_COUNT = 100
 
 export const useWorkStore = defineStore('work', {
@@ -17,8 +17,7 @@ export const useWorkStore = defineStore('work', {
       this.isLoading = true
       try {
         // 1. 使用 _embed 確保一次拿回圖片和內容
-        const res = await axios.get('http://110.42.248.8/wp-json/wp/v2/posts?categories=9&_embed&per_page=100')
-        const allPosts = res.data
+        const allPosts = await request.get('http://110.42.248.8/wp-json/wp/v2/posts?categories=9&_embed&per_page=100')
 
         const pageSize = 8
         const totalPages = Math.ceil(allPosts.length / pageSize)
@@ -72,9 +71,7 @@ export const useWorkStore = defineStore('work', {
         }
       } catch (error) {
         console.error('抓取 WP 數據失敗:', error)
-      } finally {
-        this.isLoading = false
-      }
+      } 
     }
   }
 })
