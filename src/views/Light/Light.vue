@@ -2,7 +2,7 @@
   <div class="page-container">
     
     <!-- 1. 用骨架屏组件包裹真实的列表内容，并把全局的加载状态传给 loading 属性 -->
-    <novel-skeleton :loading="isLoading">
+    <novel-skeleton :loading="isLoading" >
       
       <!-- 当 loading 为 false 时，骨架屏内部会自动展示这里的真实内容 -->
       <!-- 这样你就不用担心 pageAllData[currentPage] 还没抓到时报错了 -->
