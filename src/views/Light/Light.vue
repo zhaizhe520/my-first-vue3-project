@@ -14,9 +14,9 @@
 
     <!-- 下方的翻页按钮保持原样，不受骨架屏影响，用户随时可见 -->
     <div class="bottom-buttons">
-      <button @click="prevPage" :disabled="currentPage === 1">←</button>
+      <button @click="prevPage" :disabled="currentPage === 1"><</button>
       <div class="page-num">{{ currentPage }} / 100</div>
-      <button @click="nextPage" :disabled="currentPage === 100">→</button>
+      <button @click="nextPage" :disabled="currentPage === 100">></button>
     </div>
   </div>
 </template>
@@ -59,21 +59,47 @@ export default {
 .bottom-buttons {
   width: 100%;
   position: fixed;
-  bottom: 15px;
+  bottom: 30px;
   display: flex;
   justify-content: center;
-  gap: 20px;
+  align-items: center;
+  gap: 24px;
 }
 
 button {
-  padding: 10px 20px;
-  font-size: 15px;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(6px);
+  color: #41db50;
+  font-size: 20px;
   cursor: pointer;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  transition: all 0.25s ease;
+}
+
+button:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
 }
 
 .page-num {
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 16px;
+  font-weight: 600;
+  color: #6b8a9a;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(6px);
+  padding: 8px 20px;
+  border-radius: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 /*加載動畫 */
