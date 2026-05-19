@@ -1,6 +1,6 @@
 <template>
     <div class="github-card" v-pet-tip="'我每天有在高强度写代码哦'">
-        <div class="github-card-div"  v-pet-tip="'这是网站制作者的技术栈'">技术栈:Vue3 + Axios + Pinia + Node.js 极简后端 + MySQL</div>
+        <div class="github-card-div"  v-pet-tip="'这是网站制作者的技术栈'">技术栈:Vue3 + Axios + Pinia + Node.js 极简后端 + MySQL+ WordPress</div>
         <div class="card-header">
         </div>
         <div class="calendar-box">
@@ -14,14 +14,11 @@
     /* 添加下划线 */
   text-decoration: underline;
   /* 进阶控制（可选）：控制下划线的颜色 */
-  text-decoration-color: #8ae639;
+  text-decoration-color: #de2808;
   /* 进阶控制（可选）：控制下划线的粗细 */
   text-decoration-thickness: 2px;
   /* 进阶控制（可选）：防止下划线切断字母的下延线（比如 g, j, p, q, y） */
   text-underline-offset: 4px;
-    
-
-
 }
 /* 容器：黑底效果 */
 .github-card {
