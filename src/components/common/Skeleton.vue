@@ -1,6 +1,6 @@
 <template>
-  <!-- 当 loading 为 true 时显示骨架屏 -->
-  <div v-if="loading" class="skeleton-wrapper">
+  <!-- v-show：两个元素始终在 DOM 中，图片在骨架屏背后偷偷加载 -->
+  <div v-show="loading" class="skeleton-wrapper">
     <div v-for="i in 4" :key="i" class="skeleton-card">
       <div class="skeleton-img"></div>
       <div class="skeleton-info">
@@ -11,8 +11,9 @@
     </div>
   </div>
 
-  <!-- 当 loading 为 false 时显示插槽里的真实内容 -->
-  <slot v-else />
+  <div v-show="!loading">
+    <slot />
+  </div>
 </template>
 
 <script setup>

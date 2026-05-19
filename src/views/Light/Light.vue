@@ -22,7 +22,6 @@
 </template>
 
 <script>
-import { useGlobalStore } from '@/stores/loadingGlobalStore' // ⭐ 引入全局信号灯 Store
 import { useWorkStore } from '@/stores/useWorkStore'
 import LightPage from './LightPage.vue'
 import NovelSkeleton from '@/components/common/Skeleton.vue' // ⭐ 引入你的骨架屏组件
@@ -39,14 +38,12 @@ export default {
     }
   },
   computed: {
-    // 全局 Store 和文章 Store
-    globalStore() { return useGlobalStore() },
     workStore() { return useWorkStore() },
     
     pageAllData() { return this.workStore.pageAllData },
     
-    // ⭐ 把这里改为监听全局的加载状态，因为 Axios 拦截器控制的是全局电闸
-    isLoading() { return this.globalStore.isLoading }
+    // API 数据回来且最低展示 3 秒后，骨架屏才消失
+    isLoading() { return this.workStore.isLoading }
   },
   methods: {
     prevPage() { if (this.currentPage > 1) this.currentPage-- },

@@ -69,9 +69,13 @@ export const useWorkStore = defineStore('work', {
             }
           })
         }
+        // 最低展示 3 秒，即使数据秒回来也不闪
+        await new Promise(resolve => setTimeout(resolve, 3000))
       } catch (error) {
         console.error('抓取 WP 數據失敗:', error)
-      } 
+      } finally {
+        this.isLoading = false
+      }
     }
   }
 })
