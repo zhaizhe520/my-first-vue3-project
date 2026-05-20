@@ -13,7 +13,7 @@
     </novel-skeleton>
 
     <!-- 下方的翻页按钮保持原样，不受骨架屏影响，用户随时可见 -->
-    <div class="bottom-buttons">
+    <div v-show="!isLoading" class="bottom-buttons">
       <button @click="prevPage" :disabled="currentPage === 1"><</button>
       <div class="page-num">{{ currentPage }} / 100</div>
       <button @click="nextPage" :disabled="currentPage === 100">></button>
