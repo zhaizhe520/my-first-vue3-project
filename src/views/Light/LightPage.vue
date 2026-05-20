@@ -11,7 +11,7 @@
     <section class="line-container">
       <div v-for="(item, index) in pageData" :key="index" class="item-block">
         <div class="click-box" @click="openModal(index)">
-          <img :src="item.imgSrc" :alt="item.alt">
+          <img :src="item.imgSrc" :alt="item.alt" loading="lazy">
         </div>
         <div class="textName">{{ item.textName }}</div>
       </div>
@@ -21,7 +21,7 @@
     <div class="modal-mask" v-if="activeItem" @click="closeModal">
       <div class="modal-content" @click.stop>
         <div class="modal-img">
-          <img :src="activeItem.imgSrc" :alt="activeItem.alt">
+          <img :src="activeItem.imgSrc" :alt="activeItem.alt" loading="lazy">
         </div>
         <div class="mask-text1">
           <div class="text0">{{ activeItem.text0 }}</div>
