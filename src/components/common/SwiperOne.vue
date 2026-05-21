@@ -1,6 +1,6 @@
 <script setup>
 import { onMounted, computed } from 'vue'
-import { useGalGameStore } from '@/stores/useGalGameStore' 
+import { useGalGameStore } from '@/stores/loadingGlobalStore' 
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
 import 'swiper/css/pagination'

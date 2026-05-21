@@ -22,7 +22,8 @@ const routes = [
     path: '/anime', component: Anime
   },
   {
-    path: '/light', component: Light
+    path: '/light', component: Light,
+    meta: { hideNav: true } // 標記這個頁面不需要導航欄
   },
   {
     path: '/search',

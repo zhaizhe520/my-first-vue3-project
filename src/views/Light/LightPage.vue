@@ -11,7 +11,7 @@
     <section class="line-container">
       <div v-for="(item, index) in pageData" :key="index" class="item-block">
         <div class="click-box" @click="openModal(index)">
-          <img :src="item.imgSrc" :alt="item.alt">
+          <img :src="item.imgSrc" :alt="item.alt" loading="lazy">
         </div>
         <div class="textName">{{ item.textName }}</div>
       </div>
@@ -21,7 +21,7 @@
     <div class="modal-mask" v-if="activeItem" @click="closeModal">
       <div class="modal-content" @click.stop>
         <div class="modal-img">
-          <img :src="activeItem.imgSrc" :alt="activeItem.alt">
+          <img :src="activeItem.imgSrc" :alt="activeItem.alt" loading="lazy">
         </div>
         <div class="mask-text1">
           <div class="text0">{{ activeItem.text0 }}</div>
@@ -45,22 +45,20 @@
 </template>
 
 <script>
-// 確保全文只有這一個 script 標籤！
 export default {
   props: {
     pageData: {
-      type: Array, // 接收父組件傳來的當前頁數組[cite: 2, 3]
+      type: Array,
       default: () => []
     }
   },
   data() {
     return {
-      activeItem: null // 用於存儲當前被點擊的對象數據
+      activeItem: null
     }
   },
   methods: {
     openModal(index) {
-      // 根據點擊的索引，從 pageData 中抓取該筆數據
       this.activeItem = this.pageData[index];
     },
     closeModal() {
@@ -81,7 +79,7 @@ export default {
 
 .line-container {
   display: flex;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
   gap: 20px;
   justify-content: flex-start;
 }
@@ -107,16 +105,16 @@ export default {
   position: absolute;
   width: 250px;
   height: 400px;
-  object-fit: cover; 
+  object-fit: cover;
   border: solid;
   border-radius: 5px;
-  border-style: groove; 
+  border-style: groove;
 }
 .click-box:hover {
   /* skew(X轴倾斜角度, Y轴倾斜角度) */
   /* -30deg 通常能产生向右下伸展的视觉倾斜感 */
   transform: translateY(-5px) rotate(-3deg) scale(1.05);
-  
+
   transition: transform 0.2s ease; /* 让动作更平滑 */
 }
 
