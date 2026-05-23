@@ -1,6 +1,6 @@
 <template>
     <div class="github-card" v-pet-tip="'我每天有在高强度写代码哦'">
-        <div class="github-card-div"  v-pet-tip="'这是网站制作者的技术栈'">技术栈:Vue3 + Axios + Pinia + Node.js 极简后端 + MySQL+ WordPress</div>
+        <div class="github-card-div"  v-pet-tip="'这是网站制作者的技术栈|目标:全栈工程师+PixiJS'">技术栈:Vue3 + Axios + Pinia + Node.js 极简后端 + MySQL+ WordPress+ PixiJS</div>
         <div class="card-header">
         </div>
         <div class="calendar-box">

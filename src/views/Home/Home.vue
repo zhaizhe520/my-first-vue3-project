@@ -1,7 +1,7 @@
 <script setup>
 //引入路由
 
-import CardBox from '@/components/home/cardBox.vue';
+import CardBox from '@/components/home/githubCardBox.vue';
 import ListBox from '@/components/home/listBox.vue';
 
 
