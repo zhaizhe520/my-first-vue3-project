@@ -12,10 +12,10 @@ app.use(express.json())
 // ====== 数据库连接配置 ======
 // 改成你自己的 MariaDB 账号密码
 const dbConfig = {
-  host: '110.42.248.8',
+  host: 'xxxxxx',
   port: 3306,
   user: 'noacg_user',
-  password: '你的强密码',
+  password: 'xxxxx',
   database: 'Galgame'
 }
 
