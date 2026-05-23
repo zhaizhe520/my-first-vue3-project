@@ -1,2 +1,2 @@
-# my-first-vue-project
-headlessWP API+pinia+vue3
+#基于Live2D交互的百科网站
+
