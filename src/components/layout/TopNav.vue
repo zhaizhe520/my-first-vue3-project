@@ -1,8 +1,10 @@
 <template>
   <div class="nav-wrap" >
+    <!--背景渐变-->
     <div class="nav-img">
-      
+
     </div>
+    <img class="nav-logo" src="/logo.png" alt="logo"  v-pet-tip="'我不是二次元！'"/>
 
     <!-- 顶部导航栏：左侧GitHub + 中间搜索 + 右侧路由 -->
     <div class="nav-container" >
@@ -144,6 +146,17 @@ import searchBtn from '@/assets/search-button.module.css'
   width: 100%;
   height: 2px;
   background-color: #38bdf8;
+}
+/* 右下角 logo */
+.nav-logo {
+  position: absolute;
+  left: 20px;
+  bottom: 10px;
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  z-index: 2;
+  cursor: pointer;
 }
 
 </style>
