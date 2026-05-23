@@ -37,3 +37,9 @@ __screenshots__/
 
 # Vite
 *.timestamp-*-*.mjs
+
+# 环境变量（含密码和服务器 IP）
+.env
+
+# 后端入口（含数据库密码，不上传）
+server.js

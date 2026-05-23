@@ -11,7 +11,8 @@ export const useGalgameStore = defineStore('galgame',{
     async fetchCompanies() {
       this.isLoading = true
       try {
-        const res = await axios.get('http://localhost:3000/api/companies')
+        const api = import.meta.env.VITE_API_BASE
+        const res = await axios.get(`${api}/api/companies`)
         this.companies = res.data
       } catch (err) {
         console.error('获取公司数据失败:', err)
