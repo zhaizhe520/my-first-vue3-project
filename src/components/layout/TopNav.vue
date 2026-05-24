@@ -152,11 +152,15 @@ import searchBtn from '@/assets/search-button.module.css'
   position: absolute;
   left: 20px;
   bottom: 10px;
-  width: 70px;
-  height: 70px;
+  width: 100px;
+  height: 100px;
   object-fit: contain;
   z-index: 2;
   cursor: pointer;
+  transition: transform 0.25s ease;
+}
+.nav-logo:hover {
+  transform: scale(1.15);
 }
 
 </style>
