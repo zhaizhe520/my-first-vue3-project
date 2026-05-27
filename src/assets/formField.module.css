@@ -5,7 +5,7 @@
 }
 
 .formField input {
-  padding: 10px 15px;
+  padding: 10px 90px 10px 15px;   /* 右侧留出按钮空间 */
   outline: none;
   border: none;
   border-radius: 5px;
@@ -15,6 +15,13 @@
   font-weight: 550;
   transition: 0.3s ease-in-out;
   box-shadow: 0 0 0 5px transparent;
+}
+.formField button {
+  position: absolute;
+  right: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0;
 }
 
 .formField input:hover,
