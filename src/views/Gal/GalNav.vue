@@ -124,15 +124,15 @@ const toggleNav = () => {
 }
 
 const navItems = [
-  { id: 'home', label: '首頁', to: '/', icon: homeLogo,tip:'回到主页了哦！' }, // 这个保留路由跳转
-  { id: 'gallery', label: 'YuZuSoft', icon: yusoft, comp: GalYouZu ,tip:'这是柚子社!'}, // 增加 comp 属性
-  { id: 'chars', label: 'AliceSOFT', icon: alicesoft, comp: GalAlice ,tip:'这是A社!'},
-  { id: 'story', label: 'Key', icon: keylogo, comp: GalKey,tip:'这是Key社!' },
-  { id: 'contact', label: 'Palette', icon: palettelogo, comp: GalPalette,tip:'这是板油社!' },
-  { id: 'game', label: 'August', icon: august, comp: GalAugust,tip:'这是八月社!' },
-  { id: 'game', label: 'Lump of Sugar', icon: lumpofsugar , comp: GalLumpOfSugar,tip:'这是方糖社!' },
-  { id: 'game', label: ' Navel', icon: navel , comp: GalNavel,tip:'这是脐橙社（橘子社）!' },
-  /*{ id: 'game', label: 'Minori ', icon: minori , comp: GalMinori,tip:'这是中二社!' },*/
+  { id: 'gal', label: '首頁', to: '/', icon: homeLogo,tip:'回到主页了哦！' }, // 这个保留路由跳转
+  { id: 'gal', label: 'YuZuSOFT', icon: yusoft, comp: GalYouZu ,tip:'这是柚子社!'}, // 增加 comp 属性
+  { id: 'gal', label: 'ALICESOFT', icon: alicesoft, comp: GalAlice ,tip:'这是A社!'},
+  { id: 'gal', label: 'KEY', icon: keylogo, comp: GalKey,tip:'这是Key社!' },
+  { id: 'gal', label: 'Palette', icon: palettelogo, comp: GalPalette,tip:'这是板油社!' },
+  { id: 'gal', label: 'August', icon: august, comp: GalAugust,tip:'这是八月社!' },
+  { id: 'gal', label: 'Lump of Sugar', icon: lumpofsugar , comp: GalLumpOfSugar,tip:'这是方糖社!' },
+  { id: 'gal', label: ' Navel', icon: navel , comp: GalNavel,tip:'这是脐橙社（橘子社）!' },
+  /*{ id: 'gal', label: 'Minori ', icon: minori , comp: GalMinori,tip:'这是中二社!' },*/
   { id: 'gal', label: 'Innocent Grey ', icon: innocentgrey , comp: GalInnocentGrey,tip:'这是IG社!' },
   { id: 'gal', label: 'Purple Software ', icon: purplesoftware , comp: GalPurpleSoftware,tip:'这是紫社!' },
   { id: 'gal', label: 'ALcot', icon: aLcot , comp: GalALcot,tip:'这是彩牙社!' },
