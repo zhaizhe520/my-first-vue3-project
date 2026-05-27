@@ -1,8 +1,10 @@
 <template>
   <div class="nav-wrap" >
+    <!--背景渐变-->
     <div class="nav-img">
-      
+
     </div>
+    <img class="nav-logo" src="/logo.png" alt="logo"  v-pet-tip="'我不是二次元！'"/>
 
     <!-- 顶部导航栏：左侧GitHub + 中间搜索 + 右侧路由 -->
     <div class="nav-container" >
@@ -51,7 +53,7 @@ const searchText = ref('')
 
 const navList = ref([
   { id: 1, name: 'ホーム', path: '/' ,tip:'主页返回了哦'},
-  { id: 2, name: 'GALGame会社', path: '/gal',tip:'这是GAL公司介绍哦' },
+  { id: 2, name: 'GalGame会社', path: '/gal',tip:'这是GAL公司介绍哦' },
   { id: 3, name: 'アニメ会社', path: '/anime' ,tip:'这是动漫公司介绍哦'},
   { id: 4, name: "ライトノベル", path:"/light" ,tip:'这是轻小说哦'}
 ])
@@ -82,6 +84,8 @@ import searchBtn from '@/assets/search-button.module.css'
 /* 导航栏图片*/
 .nav-img{
   position: absolute;
+  left: 0;
+  top: 0;
   width: 100%;
   height: 180px;
   background: linear-gradient(135deg, #74EBD5 0%, #9FACE6 100%);
@@ -144,6 +148,21 @@ import searchBtn from '@/assets/search-button.module.css'
   width: 100%;
   height: 2px;
   background-color: #38bdf8;
+}
+/* 右下角 logo */
+.nav-logo {
+  position: absolute;
+  left: 20px;
+  bottom: 10px;
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  z-index: 2;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+.nav-logo:hover {
+  transform: scale(1.15);
 }
 
 </style>
