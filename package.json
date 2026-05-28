@@ -15,6 +15,7 @@
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "live2dcubismcore": "^1.0.2",
+    "marked": "^18.0.4",
     "mysql2": "^3.22.3",
     "pinia": "^3.0.4",
     "pixi-live2d-display": "^0.4.0",
