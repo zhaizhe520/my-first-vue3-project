@@ -4,7 +4,7 @@
     <p v-if="store.isLoading">加载中</p>
     <ul v-else>
         <li v-for="w in store.works" :key="w.id">
-            {{ w.title }}{{ w.id }}{{ w.release_date }}
+            {{ w.title }}{{ w.release_date?.split('T')[0] }}
         </li>
     </ul>
 </div>
