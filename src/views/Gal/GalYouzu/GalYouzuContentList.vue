@@ -88,7 +88,6 @@ defineProps({
   margin: 0;
   /* 限制文字最多显示 3 行，超出显示省略号，防止内容过多撑坏排版 */
   display: -webkit-box;
-  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
