@@ -5,6 +5,7 @@ import GalYouzuContentList from './GalYouzuContentList.vue';
 import GalYouzuContent from './GalYouzuContent.vue';
 
 const store = useGalgameStore()
+const imgPrefix = import.meta.env.VITE_IMG_PREFIX
 
 // 把 store.works 映射成卡片需要的格式，最新在前
 const cards = computed(() =>
@@ -12,7 +13,7 @@ const cards = computed(() =>
     id: w.id,
     date: w.release_date?.split('T')[0],
     isNew: w.release_date && new Date(w.release_date) > new Date(Date.now() - 90 * 86400000), // 90天内算新作
-    image: w.image || `https://picsum.photos/400/250?random=${w.id}`,
+    image: w.image ? `${imgPrefix}${w.image}` : `https://picsum.photos/400/250?random=${w.id}`,
     text: w.title
   }))
 )
