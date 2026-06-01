@@ -3,9 +3,8 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
 
-// https://vite.dev/config/
 export default defineConfig({
-  base: './', // 加上这一行，解决打包后双击打开空白的问题
+  base: './',
   plugins: [
     vue(),
     vueDevTools(),
@@ -14,5 +13,16 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
+  },
+  server: {
+  proxy: {
+    '/medias': {
+      // 更换为国内速度极快的 jsDelivr 镜像源
+      target: 'https://gcore.jsdelivr.net/gh/zhaizhe520/my-img-bed@main',
+      changeOrigin: true,
+      rewrite: (path) => path.replace(/^\/medias/, '')
+    }
   }
+}
 })
+

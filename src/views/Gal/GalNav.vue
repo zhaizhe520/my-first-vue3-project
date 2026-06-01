@@ -124,30 +124,30 @@ const toggleNav = () => {
 }
 
 const navItems = [
-  { id: 'gal', label: '首頁', to: '/', icon: homeLogo,tip:'回到主页了哦！' }, // 这个保留路由跳转
-  { id: 'gal', label: 'YuZuSOFT', icon: yusoft, comp: GalYouZu ,tip:'这是柚子社!'}, // 增加 comp 属性
-  { id: 'gal', label: 'ALICESOFT', icon: alicesoft, comp: GalAlice ,tip:'这是A社!'},
-  { id: 'gal', label: 'KEY', icon: keylogo, comp: GalKey,tip:'这是Key社!' },
-  { id: 'gal', label: 'Palette', icon: palettelogo, comp: GalPalette,tip:'这是板油社!' },
-  { id: 'gal', label: 'August', icon: august, comp: GalAugust,tip:'这是八月社!' },
-  { id: 'gal', label: 'Lump of Sugar', icon: lumpofsugar , comp: GalLumpOfSugar,tip:'这是方糖社!' },
-  { id: 'gal', label: ' Navel', icon: navel , comp: GalNavel,tip:'这是脐橙社（橘子社）!' },
+  { id: '1', label: '首頁', to: '/', icon: homeLogo,tip:'回到主页了哦！' }, // 这个保留路由跳转
+  { id: '2', label: 'YuZuSOFT', icon: yusoft, comp: GalYouZu ,tip:'这是柚子社!'}, // 增加 comp 属性
+  { id: '3', label: 'ALICESOFT', icon: alicesoft, comp: GalAlice ,tip:'这是A社!'},
+  { id: '4', label: 'KEY', icon: keylogo, comp: GalKey,tip:'这是Key社!' },
+  { id: '5', label: 'Palette', icon: palettelogo, comp: GalPalette,tip:'这是板油社!' },
+  { id: '6', label: 'August', icon: august, comp: GalAugust,tip:'这是八月社!' },
+  { id: '7', label: 'Lump of Sugar', icon: lumpofsugar , comp: GalLumpOfSugar,tip:'这是方糖社!' },
+  { id: '8', label: ' Navel', icon: navel , comp: GalNavel,tip:'这是脐橙社（橘子社）!' },
   /*{ id: 'gal', label: 'Minori ', icon: minori , comp: GalMinori,tip:'这是中二社!' },*/
-  { id: 'gal', label: 'Innocent Grey ', icon: innocentgrey , comp: GalInnocentGrey,tip:'这是IG社!' },
-  { id: 'gal', label: 'Purple Software ', icon: purplesoftware , comp: GalPurpleSoftware,tip:'这是紫社!' },
-  { id: 'gal', label: 'ALcot', icon: aLcot , comp: GalALcot,tip:'这是彩牙社!' },
-  { id: 'gal', label: 'FAVORITE', icon: favorite , comp: GalFAVORITE,tip:'这是F社!' },
-  { id: 'gal', label: 'Leaf', icon: leaf , comp: GalLeaf,tip:'这是叶子社!' },
-  { id: 'gal', label: 'AQUAPLUS', icon: aquaplus , comp: GalAquaPlus,tip:'这是叶子社母公司 !' },
-  { id: 'gal', label: 'Circus', icon: circus , comp: GalCircus,tip:'这是马戏团社!' },
-  { id: 'gal', label: 'NitroPlus', icon: nitroplus , comp: GalNitroPlus,tip:'这是N + 社!(虚渊玄老东家)' },
-  { id: 'gal', label: '5pb.', icon: MAGES , comp: Gal5pb,tip:'这是5pb.社(MAGES.) !' },
-  { id: 'gal', label: 'Hooksoft', icon: hooksoft , comp: GalHookSoft,tip:'这是Hook 社!' },
-  { id: 'gal', label: 'Whirlpool', icon: whirlpool , comp: GalWhirlpool,tip:'这是漩涡社!' },
-  { id: 'gal', label: 'SAGA PLANETS', icon: SagaPlanets , comp: GalSagaPlanets,tip:'这是传奇社!' },
-  { id: 'gal', label: 'Front Wing', icon: FrontWing , comp: GalFrontWing,tip:'这是前线翼社!' },
-  { id: 'gal', label: 'PULLTOP', icon: pulltop , comp: GalPullTop,tip:'这是易拉罐社!' },
-  { id: 'gal', label: 'Marmalade', icon: Marmalade , comp: GalMarmalade,tip:'这是橘子酱社!' },
+  { id: '9', label: 'Innocent Grey ', icon: innocentgrey , comp: GalInnocentGrey,tip:'这是IG社!' },
+  { id: '10', label: 'Purple Software ', icon: purplesoftware , comp: GalPurpleSoftware,tip:'这是紫社!' },
+  { id: '11', label: 'ALcot', icon: aLcot , comp: GalALcot,tip:'这是彩牙社!' },
+  { id: '12', label: 'FAVORITE', icon: favorite , comp: GalFAVORITE,tip:'这是F社!' },
+  { id: '13', label: 'Leaf', icon: leaf , comp: GalLeaf,tip:'这是叶子社!' },
+  { id: '14', label: 'AQUAPLUS', icon: aquaplus , comp: GalAquaPlus,tip:'这是叶子社母公司 !' },
+  { id: '15', label: 'Circus', icon: circus , comp: GalCircus,tip:'这是马戏团社!' },
+  { id: '16', label: 'NitroPlus', icon: nitroplus , comp: GalNitroPlus,tip:'这是N + 社!(虚渊玄老东家)' },
+  { id: '17', label: '5pb.', icon: MAGES , comp: Gal5pb,tip:'这是5pb.社(MAGES.) !' },
+  { id: '18', label: 'Hooksoft', icon: hooksoft , comp: GalHookSoft,tip:'这是Hook 社!' },
+  { id: '19', label: 'Whirlpool', icon: whirlpool , comp: GalWhirlpool,tip:'这是漩涡社!' },
+  { id: '20', label: 'SAGA PLANETS', icon: SagaPlanets , comp: GalSagaPlanets,tip:'这是传奇社!' },
+  { id: '21', label: 'Front Wing', icon: FrontWing , comp: GalFrontWing,tip:'这是前线翼社!' },
+  { id: '22', label: 'PULLTOP', icon: pulltop , comp: GalPullTop,tip:'这是易拉罐社!' },
+  { id: '23', label: 'Marmalade', icon: Marmalade , comp: GalMarmalade,tip:'这是橘子酱社!' },
 
 
 
@@ -163,6 +163,18 @@ const handleNavClick = async (item) => {
     scrollMainToTop()
   }
 }
+
+// 根据数据库 company_id 切换组件
+const selectCompany = async (id) => {
+  const item = navItems[id]    // navItems[1] = YuZuSOFT, [2] = ALICESOFT ...
+  if (item?.comp) {
+    currentContent.value = item.comp
+    await nextTick()
+    scrollMainToTop()
+  }
+}
+
+defineExpose({ currentContent, scrollMainToTop, selectCompany })
 </script>
 
 <style scoped>
