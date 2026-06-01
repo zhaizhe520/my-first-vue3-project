@@ -41,7 +41,7 @@ onMounted(() => {
 
 <style scoped>
 .gal-container {
-  background-color: #22252a;
+  background-color: #F5F5F4;
   min-height: 100vh;
   padding: 40px 20px;
   font-family: 'Helvetica Neue', Arial, sans-serif;

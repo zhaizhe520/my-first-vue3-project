@@ -15,12 +15,14 @@ export default defineConfig({
     }
   },
   server: {
-    proxy: {
-      '/medias': {
-        target: 'https://cdn.jsdelivr.net/gh/zhaizhe520/my-img-bed@main',
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/medias/, '')
-      }
+  proxy: {
+    '/medias': {
+      // 更换为国内速度极快的 jsDelivr 镜像源
+      target: 'https://gcore.jsdelivr.net/gh/zhaizhe520/my-img-bed@main',
+      changeOrigin: true,
+      rewrite: (path) => path.replace(/^\/medias/, '')
     }
   }
+}
 })
+
