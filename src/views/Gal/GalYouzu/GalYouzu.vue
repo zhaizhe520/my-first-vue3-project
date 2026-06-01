@@ -24,24 +24,27 @@ onMounted(() => {
 </script>
 
 <template>
-  <div>
-    <GalYouzuContent />
+  <div class="homeContainer">
+    <div>
+      <GalYouzuContent />
+    </div>
+
+    <div class="gal-container">
+      <div class="gal-grid">
+        <GalYouzuContentList v-for="item in cards" :key="item.id" :data="item" />
+      </div>
+    </div>
+
   </div>
 
-  <div class="gal-container">
-    <div class="gal-grid">
-      <GalYouzuContentList
-        v-for="item in cards"
-        :key="item.id"
-        :data="item"
-      />
-    </div>
-  </div>
 </template>
 
 <style scoped>
+.homeContainer{
+  background-color: #FEFCE8;
+
+}
 .gal-container {
-  background-color: #F5F5F4;
   min-height: 100vh;
   padding: 40px 20px;
   font-family: 'Helvetica Neue', Arial, sans-serif;
