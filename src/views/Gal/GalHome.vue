@@ -14,12 +14,17 @@
 
     <GalNav ref="galNavRef" />
   </div>
+  <div class="">
+    <GalUp />
+  </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
 import GalNav from './GalNav.vue'
 import AllCompany from './AllCompany.vue'
+import GalUp from './GalUp.vue'
+
 
 const galNavRef = ref(null)
 const showPanel = ref(false)

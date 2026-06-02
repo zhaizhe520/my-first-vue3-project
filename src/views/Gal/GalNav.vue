@@ -174,7 +174,7 @@ const selectCompany = async (id) => {
   }
 }
 
-defineExpose({ currentContent, scrollMainToTop, selectCompany })
+defineExpose({ currentContent, scrollMainToTop, selectCompany, mainRef })
 </script>
 
 <style scoped>
@@ -242,6 +242,7 @@ defineExpose({ currentContent, scrollMainToTop, selectCompany })
 .is-nav-collapsed .gal-nav-toggle {
   left: 0;
 }
+
 
 .gal-nav-toggle:hover {
   background: #fff;
@@ -362,4 +363,6 @@ a.gal-side-nav__item {
   overflow-y: auto;
   overscroll-behavior: contain;
 }
+
+
 </style>
