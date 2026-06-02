@@ -241,7 +241,6 @@ defineExpose({ currentContent, scrollMainToTop, selectCompany })
 
 .is-nav-collapsed .gal-nav-toggle {
   left: 0;
-  border-radius: 8px 0 0 8px;
 }
 
 .gal-nav-toggle:hover {
