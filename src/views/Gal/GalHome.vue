@@ -2,7 +2,7 @@
   <div class="gal-home">
     <transition name="panel">
       <AllCompany
-        v-if="showPanel"
+        v-show="showPanel"
         class="company-panel"
         @select="onCompanySelect"
       />
