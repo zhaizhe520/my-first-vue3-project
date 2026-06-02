@@ -30,6 +30,9 @@ onMounted(() => {
     </div>
 
     <div class="gal-container">
+      <h1>
+        介绍
+      </h1>
       <div class="gal-grid">
         <GalYouzuContentList v-for="item in cards" :key="item.id" :data="item" />
       </div>
@@ -48,6 +51,24 @@ onMounted(() => {
   min-height: 100vh;
   padding: 40px 20px;
   font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.gal-container h1 {
+  display: flex;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto 24px;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #18d91e;
+  padding-left: 4px;
+  cursor: default;
+  transition: text-shadow 0.3s ease;
+}
+
+.gal-container h1:hover {
+  text-shadow: 0 4px 12px rgba(70, 223, 23, 0.35);
+    cursor:pointer;
 }
 
 .gal-grid {
