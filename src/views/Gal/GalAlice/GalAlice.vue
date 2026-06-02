@@ -1,5 +1,4 @@
 <template>>
-    <h1>Ailce</h1>
     <GalAliceContent />
 </template>
 
