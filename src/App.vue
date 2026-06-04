@@ -10,7 +10,6 @@
   <!--murasame站位组件（模型就绪前一直显示）-->
   <BoxAnime v-if="!modelLoaded" />
 
-<Login />
 
   
   <!--页脚-->
@@ -35,7 +34,6 @@ import FooterBox from "./components/home/footerBox.vue";
 
 //占位组件来实现组件没出现之前的动画效果
 import BoxAnime from './components/common/BoxAnime.vue';
-import Login from './Login.vue';
 
 
 const route = useRoute()
