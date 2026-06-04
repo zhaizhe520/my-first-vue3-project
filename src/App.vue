@@ -10,8 +10,13 @@
   <!--murasame站位组件（模型就绪前一直显示）-->
   <BoxAnime v-if="!modelLoaded" />
 
+
+  
   <!--页脚-->
   <FooterBox/>
+
+
+
 
 </template>
 
@@ -48,6 +53,8 @@ onMounted(() => {
   // 给 BoxAnime 一点时间先渲染，再开始后台加载 murasame
   startLoad.value = true
 })
+
+
 
 
 </script>

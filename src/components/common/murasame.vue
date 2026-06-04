@@ -83,13 +83,13 @@ onMounted(async () => {
     const m = model.value;
     
     // 設置模型的縮放比例，0.20 代表縮小為原始大小的 20%
-    m.scale.set(0.20);
+    m.scale.set(app.value.screen.width / 1000);
     // 設置模型的中心點（錨點）為模型自身的正中心 (x:50%, y:50%)
     m.anchor.set(0.5, 0.5);
     // 設置模型在畫布上的 X 坐標為畫布寬度的一半（水平居中2）
     m.x = app.value.screen.width / 1.5;
     // 設置模型在畫布上的 Y 坐標為畫布高度的一半（垂直居中2）
-    m.y = app.value.screen.height / 2;
+    m.y = app.value.screen.height / 1.3;
 
     // 將設置好的模型對象添加到 Pixi 的舞台中顯示出來
     app.value.stage.addChild(m);
@@ -144,8 +144,8 @@ onUnmounted(() => {
   bottom: 20px;
   
   /* 3. 設置寬高，確保不會撐開父組件，也不會被壓縮 */
-  width: 300px;  /* 根據你的模型比例調整 */
-  height: 600px;
+  width: clamp(150px, 18vw, 320px);  /* 根據你的模型比例調整 */
+  height: clamp(300px, 36vw, 640px);
   
   /* 4. 核心：設置層級，確保它在所有組件的最上方 */
   z-index: 9999;

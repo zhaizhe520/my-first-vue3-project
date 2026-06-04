@@ -2,7 +2,7 @@
   <div class="gal-home">
     <transition name="panel">
       <AllCompany
-        v-if="showPanel"
+        v-show="showPanel"
         class="company-panel"
         @select="onCompanySelect"
       />
@@ -14,12 +14,17 @@
 
     <GalNav ref="galNavRef" />
   </div>
+  <div class="">
+    <GalUp />
+  </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
 import GalNav from './GalNav.vue'
 import AllCompany from './AllCompany.vue'
+import GalUp from './GalUp.vue'
+
 
 const galNavRef = ref(null)
 const showPanel = ref(false)
