@@ -9,9 +9,9 @@
     <div class="overlay" />
 
     <!-- 表单居中 -->
-    <div class="auth-form">
+    <div class="auth-form" v-pet-tip="'必须要登录才能进入哦'">
       <form @submit.prevent="isLogin ? handleLogin() : handleRegister()">
-        <h2>{{ isLogin ? '登录' : '注册' }}</h2>
+        <h2>{{ isLogin ? '登录NOANG' : '注册' }}</h2>
         <input v-model="username" autocomplete="username" placeholder="用户名" required />
         <input v-model="password" type="password" autocomplete="current-password" placeholder="密码" required />
         <button type="submit">{{ isLogin ? '登录' : '注册' }}</button>
@@ -72,8 +72,8 @@ const handleRegister = async () => {
 .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(15, 15, 35, 0.65);
-  backdrop-filter: blur(2px);
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(4px);
   z-index: 1;
 }
 
@@ -83,18 +83,18 @@ const handleRegister = async () => {
   width: 380px;
   max-width: 90vw;
   padding: 36px 32px;
-  background: rgba(28, 25, 23, 0.85);
-  border: 1px solid rgba(202, 138, 4, 0.15);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(56, 189, 248, 0.3);
   border-radius: 16px;
-  color: #E2E8F0;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 16px 48px rgba(0,0,0,0.5);
+  color: #334155;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(56, 189, 248, 0.15);
 }
 
 .auth-form h2 {
   margin: 0 0 24px;
   font-size: 1.5rem;
-  color: #FAFAF9;
+  color: #0C4A6E;
   text-align: center;
 }
 
@@ -103,47 +103,49 @@ const handleRegister = async () => {
   width: 100%;
   padding: 12px 14px;
   margin-bottom: 16px;
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid #BAE6FD;
   border-radius: 8px;
-  background: rgba(255,255,255,0.06);
-  color: #E2E8F0;
+  background: #F0F9FF;
+  color: #0F172A;
   font-size: 15px;
   box-sizing: border-box;
   outline: none;
-  transition: border-color 0.25s;
+  transition: border-color 0.25s, box-shadow 0.25s;
 }
 
 .auth-form input:focus {
-  border-color: #CA8A04;
+  border-color: #38BDF8;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
 }
 
 .auth-form button {
   width: 100%;
   padding: 12px;
   margin-top: 4px;
-  background: #CA8A04;
-  color: #1C1917;
+  background: linear-gradient(135deg, #38BDF8, #818CF8);
+  color: #fff;
   border: none;
   border-radius: 8px;
   font-size: 15px;
   font-weight: 700;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: opacity 0.2s, transform 0.15s;
 }
 
 .auth-form button:hover {
-  background: #E5A700;
+  opacity: 0.9;
+  transform: scale(1.02);
 }
 
 .toggle {
   text-align: center;
   margin-top: 20px;
   font-size: 14px;
-  color: #A8A29E;
+  color: #64748B;
 }
 
 .toggle a {
-  color: #CA8A04;
+  color: #F472B6;
   text-decoration: none;
   cursor: pointer;
 }
