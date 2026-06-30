@@ -7,14 +7,8 @@ const emit = defineEmits(['loaded'])
 import * as PIXI from 'pixi.js';
 // 引入用於支持 Cubism 4 模型的 Live2D 顯示組件
 import { Live2DModel } from 'pixi-live2d-display/cubism4';
-//對話框
-//解構會弄丟響應性
-// 使用 storeToRefs 保持響應性
-import { storeToRefs } from 'pinia'
 import { usePetStore } from '@/stores/petStore'
 const petStore = usePetStore()
-
-
 
 //打字機
 // 1. 引入你的打字機 js

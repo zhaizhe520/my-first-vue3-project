@@ -9,15 +9,6 @@
   <asyncPte v-if="startLoad" :style="{ visibility: modelLoaded ? 'visible' : 'hidden' }" @loaded="onModelLoaded" />
   <!--murasame站位组件（模型就绪前一直显示）-->
   <BoxAnime v-if="!modelLoaded" />
-
-
-  
-  <!--页脚-->
-  <FooterBox/>
-
-
-
-
 </template>
 
 <script setup>
@@ -28,9 +19,6 @@ import TopNav from "@/components/layout/TopNav.vue"
 
 
 import { useRoute } from 'vue-router'
-
-//homey页脚
-import FooterBox from "./components/home/footerBox.vue";
 
 //占位组件来实现组件没出现之前的动画效果
 import BoxAnime from './components/common/BoxAnime.vue';
