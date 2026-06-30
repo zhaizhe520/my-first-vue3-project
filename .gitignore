@@ -43,3 +43,6 @@ __screenshots__/
 
 # 后端入口（含数据库密码，不上传）
 server.js
+
+# TypeScript 编译产物
+dist-server/

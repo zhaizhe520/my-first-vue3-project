@@ -55,7 +55,7 @@ const handleRegister = async () => {
   position: fixed;
   inset: 0;
   display: flex;
-  align-items: center;
+  align-items: center;  
   justify-content: center;
   overflow: hidden;
 }
