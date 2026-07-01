@@ -46,3 +46,5 @@ server.js
 
 # TypeScript 编译产物
 dist-server/
+# npx tsc 出来的
+server.ts
