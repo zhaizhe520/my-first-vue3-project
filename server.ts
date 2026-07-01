@@ -11,7 +11,7 @@ app.use(cors())
 app.use(express.json())
 
 const dbConfig = {
-  host: process.env.DB_HOST || '127.0.0.1',
+  host: process.env.DB_HOST || '110.42.248.8',
   port: 3306,
   user: process.env.DB_USER || 'noacg_user',
   password: process.env.DB_PASSWORD || '',
@@ -71,6 +71,9 @@ app.post('/api/login', async (req: Request, res: Response) => {
 app.post('/api/register', async (req: Request, res: Response) => {
   const { username, password } = req.body
   if (!username || !password) return res.status(400).json({ error: '用户名和密码不能为空' })
+  if (password.length < 6) return res.status(400).json({ error: '密码至少6位' })
+  if (!/[a-zA-Z]/.test(password) || !/[0-9]/.test(password))
+    return res.status(400).json({ error: '密码必须包含数字和字母' })
 
   const [exists] = await db.query<RowDataPacket[]>(
     'SELECT id FROM users WHERE username = ?',

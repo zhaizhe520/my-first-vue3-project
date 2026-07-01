@@ -15,6 +15,7 @@ export const useAuthStore = defineStore('auth', {
         localStorage.setItem('authUser', JSON.stringify(res.data.user))
         this.error = null
       } catch (err) {
+        this.user = null
         this.error = '登录失败'
       }
     },
@@ -26,6 +27,7 @@ export const useAuthStore = defineStore('auth', {
         localStorage.setItem('authUser', JSON.stringify(res.data.user))
         this.error = null
       } catch (err) {
+        this.user = null
         this.error = err.response?.data?.error || '注册失败'
       }
     },

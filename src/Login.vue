@@ -152,8 +152,13 @@ const handleRegister = async () => {
 
 .error {
   color: #F43F5E;
-  margin-top: 10px;
-  font-size: 14px;
+  background: rgba(244, 63, 94, 0.1);
+  border: 1px solid rgba(244, 63, 94, 0.3);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-top: 14px;
+  font-size: 15px;
+  font-weight: 600;
   text-align: center;
 }
 
