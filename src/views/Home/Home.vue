@@ -2,6 +2,7 @@
 import CardBox from '@/components/home/githubCardBox.vue'
 import ListBox from '@/components/home/listBox.vue'
 import ImageBox2 from '@/assets/tech.jpg'
+import router from '@/router';
 </script>
 
 <template>
@@ -34,7 +35,6 @@ import ImageBox2 from '@/assets/tech.jpg'
         <p>文库数据 · 爬虫采集</p>
       </router-link>
     </section>
-
     <!-- GitHub 贡献 + 技术博客 -->
     <section class="info-section">
       <div class="info-card">
@@ -169,7 +169,7 @@ import ImageBox2 from '@/assets/tech.jpg'
 
 .info-card {
   width: 100%;
-  background: #16161E;
+  background: #d1d1ee;
   border: 1px solid #1E1E2E;
   border-radius: 16px;
   padding: 8px;
