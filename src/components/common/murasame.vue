@@ -1,6 +1,6 @@
 <script setup>
 // 從 vue 中引入生命週期鉤子和響應式 API
-import { onMounted, onUnmounted, ref, shallowRef, computed } from 'vue';
+import { onMounted, onUnmounted, ref, shallowRef, computed,watch } from 'vue';
 
 const emit = defineEmits(['loaded'])
 // 引入整個 PixiJS 繪圖引擎庫
@@ -19,8 +19,6 @@ const isVisible = computed(() => petStore.isVisible)
 
 // 2. 初始化打字機功能
 const { displayText, startTyping } = useTypewriter()
-
-import { watch } from 'vue'
 // 3. 核心邏輯：監聽 Pinia 裡的文字變化
 watch(message, (newText) => {
   if (newText) {
@@ -30,15 +28,6 @@ watch(message, (newText) => {
     displayText.value = ''
   }
 })
-
-
-
-
-
-
-
-
-
 
 // 將 PixiJS 的計時器（Ticker）註冊到 Live2D 模型類中，使其能自動播放動畫
 Live2DModel.registerTicker(PIXI.Ticker);

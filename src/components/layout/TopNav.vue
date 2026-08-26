@@ -54,7 +54,7 @@ const searchText = ref('')
 const navList = ref([
   { id: 1, name: 'ホーム', path: '/' ,tip:'主页返回了哦'},
   { id: 2, name: 'GalGame会社', path: '/gal',tip:'这是GAL公司介绍哦' },
-  { id: 3, name: 'アニメ会社', path: '/anime' ,tip:'这是动漫公司介绍哦'},
+  { id: 3, name: '附加项目功能', path: '/anime' ,tip:'这是动漫公司介绍哦'},
   { id: 4, name: "ライトノベル", path:"/light" ,tip:'这是轻小说哦'}
 ])
 
