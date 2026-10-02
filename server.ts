@@ -1,14 +1,30 @@
 import 'dotenv/config'
 import express, { Request, Response } from 'express'
-import cors from 'cors'
+import cors from 'cors'//处理
 import mysql, { RowDataPacket, ResultSetHeader } from 'mysql2/promise'
 import bcrypt from 'bcryptjs'
+import session from 'express-session'
 
 const app = express()
 const PORT = 3000
 
-app.use(cors())
+app.use(cors({
+   credentials: true,
+}))
 app.use(express.json())
+app.use(session({
+  secret: process.env.SESSION_SECRET || 'dev-secret-change-me',
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    httpOnly: true,      // 禁止 JS 读取，防 XSS
+    secure: false,       // 生产环境 https 时设 true
+    maxAge: 1000 * 60 * 60 * 24, // 1 天
+    sameSite: 'lax',     // 防 CSRF
+  },
+
+}))
+
 
 const dbConfig = {
   host: process.env.DB_HOST || '110.42.248.8',
@@ -23,11 +39,12 @@ const db = mysql.createPool({
   connectionLimit: 10,
   enableKeepAlive: true,
   keepAliveInitialDelay: 0,
-})
+  waitForConnections: true,
 
+})
 // ====== API 路由 ======
 
-// 获取所有公司
+// 获取所有公司 来当路由
 app.get('/api/companies', async (_req: Request, res: Response) => {
   try {
     const [rows] = await db.query<RowDataPacket[]>('SELECT * FROM companies')
@@ -63,7 +80,9 @@ app.post('/api/login', async (req: Request, res: Response) => {
 
   const ok = await bcrypt.compare(password, rows[0].password_hash)
   if (!ok) return res.status(401).json({ error: '用户名或密码错误' })
-
+  // 关键：写入 session
+  req.session.userId = rows[0].id
+  req.session.username = rows[0].username
   res.json({ ok: true, user: { id: rows[0].id, username: rows[0].username } })
 })
 

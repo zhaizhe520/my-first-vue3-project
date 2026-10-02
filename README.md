@@ -1,4 +1,6 @@
-# NoACG — 基于 Live2D 交互的 Galgame 百科网站
+# NoACG — 基于 Live2D 交互的 Galgame 百科网站 
+
+详细技术文档请看项目博客:https://zhaizhe520.github.io 
 
 一个前后端分离的 Galgame 品牌展示站，收录日本美少女游戏（Galgame）会社信息、旗下作品数据与轻小说。支持用户注册登录，内置 Live2D 看板娘交互与打字机对话气泡。
 
@@ -80,8 +82,21 @@ pm2 start dist-server/server.js --name backend
 - **数据库安全**：专用账号最小权限、bcrypt 哈希、软删除
 - **TypeScript 迁移**：后端从 JS 逐步迁移 TS，类型标注 `Request/Response/RowDataPacket`
 
-## 待办
 
-- [ ] 轻小说数据迁移：WordPress → 自有 MariaDB（Python 爬虫采集文庫8）
-- [ ] 作品图片字段接入图床
-- [ ] JWT 令牌替代 localStorage 持久化
+
+# 项目需求
+
+需求一:如何实现vue框架加载live2d
+
+live2d放到框架canvs画布里面 随着鼠标的移动而改变
+
+| 模块 | 作用 | 来源 |
+| ---- | ---- | ---- |
+| pixi.js | WebGL 渲染引擎 | npm |
+| pixi‑live2d‑display | PixiJS ↔ Live2D 桥梁 | npm |
+| live2dcubismcore | Cubism Core 运行库 | npm（Live2D 官方） |
+| .model3.json + 贴图 | 模型文件 | Live2D 官方/第三方下载 |
+
+# 接入
+
+llm/agent

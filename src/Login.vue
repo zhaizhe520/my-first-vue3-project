@@ -84,7 +84,7 @@ const handleRegister = async () => {
   max-width: 90vw;
   padding: 36px 32px;
   background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(56, 189, 248, 0.3);
+  border: 1px solid rgba(56, 189, 248, 0.3);  
   border-radius: 16px;
   color: #334155;
   backdrop-filter: blur(12px);

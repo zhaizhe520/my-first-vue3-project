@@ -10,15 +10,18 @@
     "server": "node server.js"
   },
   "dependencies": {
+    "@types/express-session": "^1.19.0",
     "axios": "^1.15.2",
     "bcrypt": "^6.0.0",
     "bcryptjs": "^3.0.3",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
+    "express-session": "^1.19.0",
     "live2dcubismcore": "^1.0.2",
     "marked": "^18.0.4",
     "mysql2": "^3.22.3",
+    "openai": "^7.15.0",
     "pinia": "^3.0.4",
     "pixi-live2d-display": "^0.4.0",
     "pixi.js": "^6.5.10",
